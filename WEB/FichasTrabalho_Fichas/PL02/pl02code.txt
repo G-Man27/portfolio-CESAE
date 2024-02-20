@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+</head>
+<body>
+    <!--Comentário-->
+    <h1>Minha primeira <br>página <br><br>HTLM</h1>
+    <h2>Minha primeira página HTLM</h2>
+    <h3>Minha primeira página HTLM</h3>
+    <h4>Minha primeira página HTLM</h4>
+    <h5>Minha primeira página HTLM</h5>
+    <h6>Minha       primeira 
+        
+        página HTLM</h6>
+    <h7>Não existe h7 por isso toma com texto corrido</h7>
+    <hr color="red">
+    <center>Gonçalo</center>
+    <p><b>Gonçalo</b></p>
+    <abbr title="Centro para o Desenvolvimento de Competência Digitais">CESAE Digital </abbr>
+    <blockquote> <i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi impedit architecto modi inventore! Aliquam ullam facere repudiandae labore sequi, dolorem dolor est veritatis impedit laboriosam molestiae eveniet quidem consequuntur</i></blockquote> <br>
+    Lorem ipsum <b>dolor</b>, <u>sit amet consectetur adipisicing elit. <i> <b>Culpa</b></u> nihil fugiat labore accusantium</i>. Officia delectus ea velit <mark> fugit</mark>. Praesentium, nam. Illum iste officiis <small>dolorum</small> <q>reiciendis</q> ,<del>blanditiis</del>  neque rem in! <br><br>
+    A<sup>A</sup>S <sub>a</sub> <br> <br>
+    
+    <ul>
+        <li>Pão</li>
+        <li>Água</li>
+        <li>Massa</li>
+    </ul>
+
+    <ol>
+        <li>Pão</li>
+        <li>Água</li>
+        <li>Massa</li>
+    </ol>
+
+    <!--<p>ol>li*10>p</p>-->
+    <p>
+        <ol>
+            <li>
+                <p><mark>000webhost.com</mark></p>
+            </li>
+            <li>
+                <p><mark>amen.pt</mark></p>
+            </li>
+            <li>
+                <p>Raspberry py / noip.com</p>
+            </li>
+        </ol>
+    </p>
+    
+    <dl>
+        <dt>HTLM</dt>
+        <dd>“HTML é a abreviatura de Hypertext Markup 
+            Language, ou seja, Linguagem de Marcação de Hipertexto. É uma notação usada para a publicação de conteúdo 
+            (texto, imagens, vídeos, áudio, …) na web.”</dd>
+    </dl>
+
+    <img width="200px" src="https://th.bing.com/th/id/OIP.nn50DoRMYxfCDO8plqpq9gHaEB?w=300&h=180&c=7&r=0&o=5&pid=1.7" alt="">
+    <img width="100" src="OIP.jfif" alt="IEFP">
+</body>
+</html>
