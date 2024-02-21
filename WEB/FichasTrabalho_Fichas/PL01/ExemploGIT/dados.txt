@@ -1,3 +1,94 @@
-fasbfjsb
-asfbjbfjka
-abfjasbjfb
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    musica -> musica.mp3
+
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git add .\musica.mp3
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    musica -> musica.mp3
+
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m "add musica"
+[main 777f2d0] add musica
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/{musica => musica.mp3} (100%)
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git log
+commit 777f2d097b57c906345a2a73d4251c8a8de76136 (HEAD -> main)
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:24:01 2024 +0000
+
+    add musica
+
+commit eab6be320ba25ade571c0e4df48cc5a7a6af9f12
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:02:57 2024 +0000
+
+    test
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git show 777f2d097b57c906345a2a73d4251c8a8de76136
+commit 777f2d097b57c906345a2a73d4251c8a8de76136 (HEAD -> main)
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:24:01 2024 +0000
+
+    add musica
+
+diff --git a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/musica b/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/musica.mp3
+similarity index 100%
+rename from WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/musica
+rename to WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/musica.mp3
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git show eab6be320ba25ade571c0e4df48cc5a7a6af9f12
+commit eab6be320ba25ade571c0e4df48cc5a7a6af9f12
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:02:57 2024 +0000
+
+    test
+
+diff --git a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/README.md b/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/README.md
+new file mode 100644
+index 0000000..707ca44
+--- /dev/null
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m " Ficheiro index.html alterado"                                   
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git add .\index.html      
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m " Ficheiro index.html alterado"
+[main 77bffb0]  Ficheiro index.html alterado
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git show
+commit 77bffb0ebfdf3e674ff97584ea7fa4a07dd6bb46 (HEAD -> main)
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:33:19 2024 +0000
+
+     Ficheiro index.html alterado
+
+diff --git a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html b/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html
+index ed66369..89601a7 100644
+--- a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html
++++ b/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html
