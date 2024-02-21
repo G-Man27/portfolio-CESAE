@@ -92,3 +92,64 @@ diff --git a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html b/WEB/FichasTr
 index ed66369..89601a7 100644
 --- a/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html
 +++ b/WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/index.html
+
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git branch novaFuncionalidade 
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git branch
+* main
+  novaFuncionalidade
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git checkout novaFuncionalidade
+Switched to branch 'novaFuncionalidade'
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git status
+On branch novaFuncionalidade
+nothing to commit, working tree clean
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git branch
+  main
+* novaFuncionalidade
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commmit -m "Nova Funcionalidade implementada"
+git: 'commmit' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m "Nova Funcionalidade implementada"^C
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m "Nova Funcionalidade implementada"
+On branch novaFuncionalidade
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ficheiro.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git add .\ficheiro.txt
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git commit -m "Nova Funcionalidade implementada"
+[novaFuncionalidade dffc68d] Nova Funcionalidade implementada
+ 1 file changed, 1 insertion(+)
+ create mode 100644 WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/ficheiro.txt
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git log
+commit dffc68d3f75374f695540a8638d7c38cd3c40891 (HEAD -> novaFuncionalidade)
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:50:04 2024 +0000
+
+    Nova Funcionalidade implementada
+
+commit 69806494ad4196d4a5b92d508185ad08c9b7bd5e (main)
+Author: G-Man27 <gon.carvalho.oliveira@gmail.com>
+Date:   Wed Feb 21 15:40:00 2024 +0000
+
+    exeploGit update
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git merge novaFuncionalidade
+Updating 6980649..dffc68d
+Fast-forward
+ WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/ficheiro.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 WEB/FichasTrabalho_Fichas/PL01/ExemploGIT/ficheiro.txt
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git branch -D novaFuncionalidade
+Deleted branch novaFuncionalidade (was dffc68d).
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git branch
+* main
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT> git remote add origin https://github.com/G-Man27/DWEB1_Ficha1.git
+>> git branch -M main
+error: remote origin already exists.
+PS C:\Users\softdev\OneDrive - CESAE\meus doc\GitHub\CESAE\WEB\FichasTrabalho_Fichas\PL01\ExemploGIT>
