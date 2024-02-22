@@ -1,0 +1,27 @@
+ func:
+ conta de utilizador, com possiblidadde de autenticação com terceiros (google, facebook, linkedin), com recuperação de password
+ com conta ser possivel visualizar as 1ªs 5 paginas dos livros da biblioteca;
+ possiblidade de em cada livro na biblioteca_user retomar a leitura onde parou e criar anotações
+ adicionar  uma parte de reviews online e de users a cada livro,só podem ser adicionadas reviews por utilizadores que tenham o livro
+ posiblidade de em ambas as bibliotecas ordenar por adicionados recentemente, data, tema, autor etc. e filtrar
+ pagmento mbway , paypal, multibanco
+ na area de user adicionar hitorico de compras
+ ver stand e book pro com subscrição mensal com disconto de read e download dos livros
+ ver offline so com book pro
+ carrinho
+ wishlist
+
+ nao func:
+ filtos(por título e tags(tema, autor,ect)adicionadas ao proprio livro)
+ acesso aos livros comprados feitos por key
+ (com users de book pro) possiblidadde de guardar offline
+ guardar (com users de book pro) os livros comprados numa pasta incriptada da propria app localizada no dispositivo do use, apra leitura offline
+ com a criação da conta associar uma key que de acesso as primeira 5 paginas de cada livro 
+ livros sugeridos com base nas compras
+ RGPD complience
+ area de compra com carrinho wishlist e hitórico 
+ copyrights complience
+ backup
+ armazenamento em cache
+ 
+ 
