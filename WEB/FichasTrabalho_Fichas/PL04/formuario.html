@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://google.com" method="get">
+        <!-- method="post" para informações sensiveis como password -->
+        <fieldset>            
+            <legend>Título do Formulário</legend>
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" name="" id="nome" placeholder="Insira o seu nome" required>
+            </div>
+            <div>
+                <label for="">Email:</label>
+                <input type="email" name="" id="" value="@cesae.pt">
+            </div>
+            <div>
+                <label for="">Password:</label>
+                <input type="password" name="form_pass" id="" required>
+            </div>
+            <div>
+                <label for="">Ficheiro</label>
+                <input type="file" name="" id="">
+            </div>
+            <div>
+                <label for="">Data</label>
+                <input type="date" name="" id="">
+            </div>
+            <div>
+                <label for="">Número</label>
+                <input type="number" name="" id="" min="0" max="10">
+            </div>
+            <br>
+            <div>
+                <label for="">Dia da semana</label><br>
+                <label for="">Segunda-feira</label><input type="radio" name="dia" id=""><br>
+                <label for="">Terça-feira</label><input type="radio" name="dia" id=""><br>
+                <label for="">Quarta-feira</label><input type="radio" name="dia" id=""><br>
+                <label for="">Quinta-feira</label><input type="radio" name="dia" id=""><br>
+                <label for="">Sexta-feira</label><input type="radio" name="dia" id=""><br>
+                <input type="radio" name="fim_de_semana" id=""><label for="">Sábado</label><br>
+                <input type="radio" name="fim_de_semana" id=""><label for="">Domingo</label><br><br>
+
+            </div>
+            <div>
+                <label for="">Cor favorita</label><br>
+                <input type="checkbox" name="" ><label for="">Amarelo</label>
+                <input type="checkbox" name="" ><label for="">Vermelho</label>
+                <input type="checkbox" name="" ><label for="">Verde</label>
+                <input type="checkbox" name="" ><label for="">Azul</label>
+            </div><br>
+            <div>
+                <label for="">Curso:</label>
+                <select name="form_curso" id="form_curso">
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="softdev">Software Developer</option>
+                    <option value="fendev">Frontend Developer</option>
+                    <option value="ncsa">Network & cybersecurity</option>
+                    <option value="dataan">Data Analyst</option>
+                </select>
+            </div><br>
+            <textarea name="" id="" cols="10" rows="2"></textarea>
+            <div>
+                <input type="reset" value="Limpar">
+                <input type="submit" value="Enviar">
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+</html>
