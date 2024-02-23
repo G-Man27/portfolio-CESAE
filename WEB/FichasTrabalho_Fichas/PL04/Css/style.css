@@ -1,0 +1,10 @@
+body{
+    background-color: lightgray;
+    padding: 20px;
+    text-align: justify;
+}
+p{
+    background-color: rgb(132, 0, 255);
+    margin: 20px;
+    padding: 10px;
+}
