@@ -8,3 +8,18 @@ p{
     margin: 20px;
     padding: 10px;
 }
+#alinhaEsquerda {
+    text-align: left;
+}
+#alinhaDireita {
+    text-align: right;
+}
+h1, h2, h3, p{
+    text-align: center;
+}
+header h1{
+    color: red;
+}
+main h1{
+    color: rgb(8, 202, 137);
+}
