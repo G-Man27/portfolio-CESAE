@@ -9,53 +9,29 @@
     <form action="https://google.com" method="get">
         <!-- method="post" para informações sensiveis como password -->
         <fieldset>            
-            <legend>Título do Formulário</legend>
+            <legend>Formulário de contacto do CESAE</legend>
             <div>
-                <label for="nome">Nome:</label>
-                <input type="text" name="" id="nome" placeholder="Insira o seu nome" required>
+                <label for="form_nome">Nome:</label>
+                <input type="text" name="form_nome" id="form_nome" placeholder="Insira o seu nome aqui" required>
             </div>
             <div>
-                <label for="">Email:</label>
-                <input type="email" name="" id="" value="@cesae.pt">
-            </div>
-            <div>
-                <label for="">Password:</label>
-                <input type="password" name="form_pass" id="" required>
-            </div>
-            <div>
-                <label for="">Ficheiro</label>
-                <input type="file" name="" id="">
-            </div>
-            <div>
-                <label for="">Data</label>
-                <input type="date" name="" id="">
-            </div>
-            <div>
-                <label for="">Número</label>
-                <input type="number" name="" id="" min="0" max="10">
+                <label for="form_email">Email:</label>
+                <input type="email" name="form_email" id="form_email" value="@">
             </div>
             <br>
             <div>
-                <label for="">Dia da semana</label><br>
-                <label for="">Segunda-feira</label><input type="radio" name="dia" id=""><br>
-                <label for="">Terça-feira</label><input type="radio" name="dia" id=""><br>
-                <label for="">Quarta-feira</label><input type="radio" name="dia" id=""><br>
-                <label for="">Quinta-feira</label><input type="radio" name="dia" id=""><br>
-                <label for="">Sexta-feira</label><input type="radio" name="dia" id=""><br>
-                <input type="radio" name="fim_de_semana" id=""><label for="">Sábado</label><br>
-                <input type="radio" name="fim_de_semana" id=""><label for="">Domingo</label><br><br>
-
+                <label for="form_genero">Género</label><br>
+                <input type="radio" name="form_genero" id="form_genero_m"><label for="form_genero_m">Masculino</label><br>
+                <input type="radio" name="form_genero" id="form_genero_f"><label for="form_genero_f">Feminino</label>
+            </div>
+            <br>
+            <div>
+                <label for="">Data atual</label>
+                <input type="date" name="" id="">
             </div>
             <div>
-                <label for="">Cor favorita</label><br>
-                <input type="checkbox" name="" ><label for="">Amarelo</label>
-                <input type="checkbox" name="" ><label for="">Vermelho</label>
-                <input type="checkbox" name="" ><label for="">Verde</label>
-                <input type="checkbox" name="" ><label for="">Azul</label>
-            </div><br>
-            <div>
-                <label for="">Curso:</label>
-                <select name="form_curso" id="form_curso">
+                <label for="form_turma">Turma:</label>
+                <select name="form_turma" id="form_turma">
                     <option value="" disabled selected>Selecione uma opção</option>
                     <option value="softdev">Software Developer</option>
                     <option value="fendev">Frontend Developer</option>
@@ -63,7 +39,10 @@
                     <option value="dataan">Data Analyst</option>
                 </select>
             </div><br>
-            <textarea name="" id="" cols="10" rows="2"></textarea>
+            <div>
+                <label for="form_mensagem">Mensagem</label>
+                <textarea name="form_mensagem" id="form_mensagem" cols="10" rows="2"></textarea>
+            </div>
             <div>
                 <input type="reset" value="Limpar">
                 <input type="submit" value="Enviar">
