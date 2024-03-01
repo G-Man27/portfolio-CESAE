@@ -1,0 +1,50 @@
+body{
+    background-color: lightgray;
+    padding: 20px;
+    text-align: justify;
+}
+p{
+    background-color: rgb(132, 0, 255);
+    margin: 20px;
+    padding: 10px;
+}
+#alinhaEsquerda {
+    text-align: left;
+}
+#alinhaDireita {
+    text-align: right;
+}
+h1, h2, h3, p{
+    text-align: center;
+}
+header h1{
+    color: red;
+}
+main h1{
+    color: rgb(8, 202, 137);
+}
+.vermelho{
+    color: red;
+    background-color: rgba(32, 178, 171, 0.5);
+    border: 6px outset lemonchiffon;
+}
+.azul{
+    color: #4169E1;
+}
+.verde{
+    color:  rgb(0, 255, 242);
+}
+.margin{
+    background-color: cadetblue;
+    border: solid red;
+    border-width: 25px 10px 4px 35px;
+    color: whitesmoke;
+    margin: 10px;
+}
+.padding{
+    background-color: forestgreen;
+    border: 2mm red;
+    border-style: dotted dashed double hidden;
+    color: antiquewhite;
+    padding: 30px;
+}

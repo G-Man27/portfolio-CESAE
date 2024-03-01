@@ -1,0 +1,45 @@
+body{
+    background-color: bisque;
+    margin: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header{
+    text-align: center;
+    position: sticky;
+    top:0;
+    background-color: bisque;
+}
+header>img{
+    width: 50%;
+}
+nav{
+    background-color: grey;
+    color: white; 
+    padding: 5px;
+    margin: 10px;  
+}
+nav a{color: white; text-decoration: none;}
+nav a:hover{color: deepskyblue; text-decoration: underline dodgerblue;}
+nav img{
+    height: 25px;
+    padding: 5px 0px 0px;
+}
+footer{
+    text-align: center;
+    background-color: gray;
+    padding: 5px;
+    margin: 10px;
+}
+p{
+    text-align: justify;
+}
+h1{
+    color: rgba(128, 0, 128, 0.418);
+    border-style: dashed double dotted solid;
+    border-color: rgba(82, 2, 82, 0.801) rgba(211, 0, 98, 0.801) rgba(59, 112, 161, 0.801) rgba(4, 142, 223, 0.801) ;
+    padding: 10px;
+}
+.fa-spotify{
+    color: rgb(18, 167, 4);
+    background-color: white;
+}
