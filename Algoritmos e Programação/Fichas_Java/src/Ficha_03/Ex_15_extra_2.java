@@ -8,7 +8,7 @@ public class Ex_15_extra_2 {
         System.out.print("f:" );
         int n=input.nextInt();
         int f=2;
-        int sum=2;
+        int sum;
         System.out.print("1*2");
 
         for(int i=2;i<n;i++){
