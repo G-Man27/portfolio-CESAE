@@ -21,7 +21,7 @@ public class Ex_15_extra_2 {
         System.out.println("=" + f);
     }
 }
-/* m
+/*
 int n=input.nextInt();
 sum=f=n;
 for(int i=(n-1);i>1;i--){
