@@ -1,0 +1,44 @@
+/* Worten CSS */
+:root{
+    --vermelho: #e51c15;
+    --branco: #fff;
+    --cinzento: #aaa;
+    --preto: #000;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+}
+.btn{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: 1px solid var(--branco);
+}
+.btn:hover{
+    background-color: var(--branco);
+    color: var(--vermelho);
+}
+
+header{
+    background-color: var(--vermelho);
+}
+header img{
+    width: 200px;
+}
+nav input{
+    background-color: var(--branco) !important;
+    width: 300px !important;
+    color: var(--preto) !important;
+}
+nav input::placeholder{
+    color: var(--cinzento) !important;
+}
+footer{
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+footer a{
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    padding: 5px;
+    border-radius: 110%;
+}
