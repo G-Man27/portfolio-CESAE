@@ -16,8 +16,13 @@ body{
 .btn:hover{
     background-color: var(--branco);
     color: var(--vermelho);
+    border: 1px solid var(--vermelho);
 }
-
+.badge{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: 1 px solid var(--branco);
+}
 header{
     background-color: var(--vermelho);
 }
@@ -31,6 +36,27 @@ nav input{
 }
 nav input::placeholder{
     color: var(--cinzento) !important;
+}
+.carousel-control-next{
+    background-color: rgba(68, 67, 67, 0.308);
+    border-radius: 100%;
+        
+}
+.carousel-control-prev{
+    background-color: rgba(68, 67, 67, 0.308);
+    border-radius: 100%;
+        
+}
+.card-title{
+    min-height: 96px;
+}
+.carousel-caption h5, .carousel-caption p{
+    background-color: rgba(68, 67, 67, 0.308);
+    text-align: center;
+    display: inline;
+}
+#gmaps{
+    height: 400px;
 }
 footer{
     background-color: var(--vermelho);

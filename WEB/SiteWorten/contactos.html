@@ -63,7 +63,73 @@
         </nav>
     </header>
 
-    <main class="mb-2 p-3 shadow rounded"></main>
+    <main class="mb-2 p-3 shadow rounded">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            Mapa<iframe class="w-100" id="gmaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59906.575760423846!2d-8.687735999999948!3d41.209084000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2468c6ba24ddef%3A0x6a02d51678a2f4b6!2sWorten!5e1!3m2!1spt-PT!2sus!4v1709829931561!5m2!1spt-PT!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></</iframe>
+          </div>
+          <div class="col-12 col-md-6 text-center my-auto">
+            <div class="row">
+              <div class="col">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>Av. Dr. Óscar Lopes nº055, MARSHOPPING Matosinhos</span>
+                <span>4450-337</span>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <i class="bi bi-clock"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col"><span>2ª a Domingo: 10:00 - 23:00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center md-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Fale Connosco!
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Contacto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Insira o seu email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </div></div>
+        </div>
+
+      </div>
+    </main>
 
     <footer class="container-fluid text-center sticky-bottom fixed-bottom">
       <div class="row p-3">
