@@ -19,7 +19,7 @@ public class Ex_06 {
 
         //Encontrar menor
         for (int i = 1; i < vetor.length; i++) {
-            if (vetor[i] < vetor[i - 1]) {
+            if (vetor[i] <= vetor[i - 1]) {
                 crescente = false;
                 break;
             }

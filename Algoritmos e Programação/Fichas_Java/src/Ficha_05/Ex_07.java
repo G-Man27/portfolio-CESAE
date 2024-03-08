@@ -19,10 +19,13 @@ public class Ex_07 {
         System.out.println("----------------------------------------------------------------------------");
 
         //Encontrar maior
-        maior = vetor[0];
+        maior = 0;
         for (double v : vetor) {
             if (v % 2 == 0 && v != 0) {
-                p = true;
+                if (!p){
+                    maior=v;
+                    p = true;
+                }
                 if (v > maior) {
                     maior = v;
                 }
