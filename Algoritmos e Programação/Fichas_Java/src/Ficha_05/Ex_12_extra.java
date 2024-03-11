@@ -16,12 +16,12 @@ public class Ex_12_extra {
             vectors[i] = new int[size];
         }
 
-        int[] vetor2 = new int[10];
-        int[][] matriz = new int[vectors.length][vectors[]];
+
+        int[][] matriz = new int[vectors[0].length][vectors.length];
 
         //Ler vetores
         for (int i = 1; i < nv; i++) {
-            for (int i2 = 0; i < vectors[i].length; i++) {
+            for (int i2 = 0; i2 < vectors[i].length; i2++) {
                 System.out.print("Insira um número no vetor" + i + "[" + i2 + "]: ");
                 vectors[i][i2] = input.nextInt();
             }
