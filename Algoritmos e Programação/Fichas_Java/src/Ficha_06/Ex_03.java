@@ -54,12 +54,25 @@ public class Ex_03 {
      */
     public static boolean IsPerfeito(int n) {
         int soma = 0;
-        boolean primo = false;
         for (int i = 1; i < n; i++) if (n % i == 0) soma += i;
         if (soma==n) return true;
         else return false;
     }
 
-
+    /**
+     * Verifica se o número é triangular
+     * (Um número triangular é um número natural que pode ser representado na forma de um triângulo equilátero,ou seja, pode ser representado pela soma dos primeiros n números naturais.)
+     * @param n
+     * @return Boolean: true (é triangular); false (não é triangular)
+     */
+    public static boolean IsTriangular(int n) {
+        int soma = 0, i=1;
+        while (soma<n) {
+            soma+=i;
+            if (soma==n) return true;
+            i++;
+        }
+        return false;
+    }
 }
 
