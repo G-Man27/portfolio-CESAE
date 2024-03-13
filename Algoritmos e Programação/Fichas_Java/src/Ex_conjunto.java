@@ -5,7 +5,7 @@ public class Ex_conjunto {
      * @return int indice do melhor mês
      */
     public static int melhorMes(int matriz[][]){
-        int soma, melhor=0, melhorMes=0;
+        int soma, melhor=0, melhorMes=1;
 
         //tomar o primeiro mes como o melhor inicial
         for (int linha = 0; linha < matriz.length; linha++) {
@@ -34,7 +34,7 @@ public class Ex_conjunto {
      * @return int indice do pior mês
      */
     public static int piorMes(int matriz[][]){
-        int soma, pior=0, piorMes=0;
+        int soma, pior=0, piorMes=1;
 
         //tomar o primeiro mes como o pior inicial
         for (int linha = 0; linha < matriz.length; linha++) {
