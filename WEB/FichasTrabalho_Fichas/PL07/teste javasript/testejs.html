@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- <button onclick="alert('Clicando')">Clique aqui</button> -->
+    <button onclick="mostrarLista()">Mostrar Lista</button>
+
+    <!-- <button onclick="corFundoAmarelo()">Amarelo</button>
+    <button onclick="corFundoVerde()">Verde</button>
+    <button onclick="corFundoLaranja()">Laranja</button> -->
+
+    <button onclick="corFundo('yellow')">Amarelo</button>
+    <button onclick="corFundo('green')">Verde</button>
+    <button onclick="corFundo('orange')">Laranja</button>
+    <hr>
+
+    <input type="text" name="input-cor" id="input-cor">
+    <button onclick="mudarCor()">Mudar Cor</button>
+    <hr>
+
+    <input type="radio" name="cor-fundo" id="cor-fundo-amarelo" value="yellow">Amarelo
+    <br>
+    <input type="radio" name="cor-fundo" id="cor-fundo-verde" value="green">Verde
+    <br>
+    <button onclick="mudarCorRadio()">Mudar Cor Radio</button>
+    <hr>
+    <select name="cor-select" id="cor-select">
+        <option value="" disabled selected>Mudar cor</option>
+        <option value="red">Vermelho</option>
+        <option value="blue">Azul</option>
+    </select>
+    <button onclick="mudarCorSelect()">Mudar cor Select</button>
+    <small id="erro-select">Selecione cor antes de clicar</small>
+
+    <p onmouseover="corFundo('pink')" onmouseout="corFundo('white')">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum ullam amet maxime officiis, vel quae repellendus molestiae, delectus ea fugit iusto totam consequatur quasi aut aspernatur quam ipsa pariatur eos?</p>
+
+    <button onmouseup="alert('Clicado')">UP</button>
+    <button onmousedown="alert('Clicado')">DOWN</button>
+
+    <input type="text" onfocus="corFundo('grey')" onblur="corFundo('brown')">
+
+    <script>
+        //alert('Olá')
+        //document.write('olá')
+    </script>
+    <script src="main.js"></script>
+</body>
+</html> 
