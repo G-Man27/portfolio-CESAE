@@ -4,8 +4,8 @@ public class Ex_03 {
     /**
      * Verifica se o número é par
      *
-     * @param numero número inteiro
-     * @return Boolean
+     * @param numero Número inteiro
+     * @return True: se par || False: se impar
      */
     public static boolean IsPar(int numero) {
         if (numero % 2 == 0) return true;
@@ -16,7 +16,7 @@ public class Ex_03 {
      * Verifica se o número é positivo
      *
      * @param n int Número
-     * @return Boolean: true((n>=0): positivo);
+     * @return Boolean: true((n>=0): positivo) ||
      * false((n<0): negativo)
      */
     public static boolean IsPositivo(int n) {
@@ -27,7 +27,7 @@ public class Ex_03 {
     /**
      *Verifica se o número é primo
      * @param n int Número
-     * @return Boolean: true (é primo);
+     * @return Boolean: true (é primo) ||
      * false (não é primo)
      */
     public static boolean IsPrimo(int n) {
@@ -50,7 +50,7 @@ public class Ex_03 {
      * Verifica se o número é perfeito
      * (Um número perfeito é um número natural para o qual a soma de todos os seus divisores naturais próprios (excluindo ele mesmo) é igual ao próprio número)
      * @param n
-     * @return Boolean: true (é perfeito); false (não é perfeito)
+     * @return Boolean: true (é perfeito) || false (não é perfeito)
      */
     public static boolean IsPerfeito(int n) {
         int soma = 0;
@@ -63,7 +63,7 @@ public class Ex_03 {
      * Verifica se o número é triangular
      * (Um número triangular é um número natural que pode ser representado na forma de um triângulo equilátero,ou seja, pode ser representado pela soma dos primeiros n números naturais.)
      * @param n
-     * @return Boolean: true (é triangular); false (não é triangular)
+     * @return Boolean: true (é triangular) || false (não é triangular)
      */
     public static boolean IsTriangular(int n) {
         int soma = 0, i=1;
