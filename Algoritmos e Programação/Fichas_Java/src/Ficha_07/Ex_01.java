@@ -20,7 +20,7 @@ public class Ex_01 {
 
         try {
 
-            ImprimirFicheiroConsola("Ficheiros/exercicio_01_Alternativa02.txt");
+            ImprimirFicheiroConsola("Files/exercicio_01_Alternativa02.txt");
 
         } catch (FileNotFoundException e) {
 
@@ -28,6 +28,5 @@ public class Ex_01 {
 
         }
 
-    }
     }
 }
