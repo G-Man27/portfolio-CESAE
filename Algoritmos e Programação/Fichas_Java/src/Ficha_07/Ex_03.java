@@ -15,6 +15,7 @@ public class Ex_03 {
         while (fileReader.hasNextLine()) {
             String linha = fileReader.nextLine();
             maquinaEscrever.println(linha);
+            // ou sem usar variavel linha: maquinaEscrever.println(fileReader.nextLine());
         }
         maquinaEscrever.close();
     }
