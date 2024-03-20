@@ -39,11 +39,11 @@ public class Projecto {
 
         do {
             String[] user = Login();
-            if (user[0]==1)/*menu ADMIN*/{
+            if (user[1]==1)/*menu ADMIN*/{
                 do {
 
                 }while ();
-            }else if(user[0]==2)/*menu user*/{do{}while ();}
+            }else if(user[1]==2)/*menu user*/{do{}while ();}
 
 
 
