@@ -130,7 +130,6 @@ public class GameStart {
      * @throws FileNotFoundException
      */
     public static String[][] Pesquisa(String valor, String campo, String path) throws FileNotFoundException {
-        Scanner fileReader = new Scanner(new File(path));
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
         int i, n_resultados = 0, linha = 0;
 
@@ -172,7 +171,7 @@ public class GameStart {
      */
     public static String[] Distintos(String campo, String path) throws FileNotFoundException {
         int i, contador = 0;
-        Scanner fileReader = new Scanner(new File(path));
+        //encontrar index do campo
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
         for (i = 0; i < matriz[0].length; i++) {
             if (matriz[0][i].equals(campo)) {
@@ -180,19 +179,27 @@ public class GameStart {
             }
         }
 
+        //contar o número de resultados
         for (int j = 1; j < matriz.length; j++) {
             boolean distinct= true;
             for (int k=j; k >1 ; k--) {
-                if (matriz[k][i].equals(matriz[k-1][i])) distinct=false;
+                if (matriz[k][i].equals(matriz[k - 1][i])) {
+                    distinct = false;
+                    break;
+                }
             }
             if (distinct) contador++;
         }
+        //criar o vetor com os resultados
         String[] distintos=new String[contador];
         contador=0;
         for (int j = 1; j < matriz.length; j++) {
             boolean distinct= true;
             for (int k=j; k >1 ; k--) {
-                if (matriz[k][i].equals(matriz[k-1][i])) distinct=false;
+                if (matriz[k][i].equals(matriz[k - 1][i])) {
+                    distinct = false;
+                    break;
+                }
             }
             if (distinct) {
                 distintos[contador]=matriz[j][i];
@@ -240,29 +247,134 @@ public class GameStart {
         return soma;
     }
 
-    public static String Melhor(String campo, String path, String path2) throws FileNotFoundException {
-        boolean percentagem=false;
-        String [] distintos=Distintos(campo, path);
-        String melhor=distintos[0];
-        if (campo.equals("categoria")) percentagem=true;
-        double maiorTotal=Total(distintos[0],campo,path,path2, percentagem);
-        for (int i = 1; i < distintos.length; i++) {
-            double atual=Total(distintos[0],campo,path,path2, percentagem);
-            if (maiorTotal<atual){
-                maiorTotal=atual;
-                melhor=distintos[i];
+
+    /**
+     * Lista de Top(Best/Worst) n valores de uma coluna
+     * @param np n valores(ex top 5: n=5)
+     * @param campo nome da coluna
+     * @param top Best==true || Worst==False
+     * @param path caminho das vendas
+     * @param path2 caminho das categorias
+     * @return matriz com os valores do top do campo e o total respetivo
+     * @throws FileNotFoundException
+     */
+    public static String[][] Melhores(int np, String campo, boolean top, String path, String path2) throws FileNotFoundException {
+        boolean percentagem;
+        int n_colunas=0,n=0;
+        percentagem= campo.equals("categoria");
+
+        //criar uma matriz com o nº de linhas = nº valores distintos do campo
+        String [][] distintos=new String[Distintos(campo, path).length][2] ;
+
+        //criar vetor com top valores
+        double[] valores=new double[np];
+
+        //top==true maiores valores
+        if (top){
+            for (int i = 0; i < distintos.length; i++) {
+                distintos[i][0]=Distintos(campo, path)[i];
+                distintos[i][1]=Double.toString(Total(distintos[i][0],campo,path,path2, percentagem));
             }
+
+            //iniciar a var melhor com o primeiro valor do vetor
+            double maiorTotal=Double.parseDouble(distintos[0][1]);
+            double maiorTotal_anterior=Double.parseDouble(distintos[0][1])+1;
+
+            do {
+                int n_resultados=1;
+                for (int i = 0; i < distintos.length; i++) {
+                    if ((Double.parseDouble(distintos[i][1]))<maiorTotal_anterior){
+                        maiorTotal=Double.parseDouble(distintos[i][1]);
+                        break;
+                    }
+                }
+
+                //calcular o maior sumatório(maiorTotal)
+                for (int i = 1; i < distintos.length; i++) {
+                    double atual=Double.parseDouble(distintos[i][1]);
+                    if ((maiorTotal<=atual)&&(atual<maiorTotal_anterior)){
+                        if(maiorTotal==atual){
+                            n_resultados++;//contar o nº de melhores
+                        }else {
+                            n_resultados=1;
+                            maiorTotal=atual;
+                        }
+                    }
+                }
+                if (n_resultados>n_colunas){
+                    n_colunas=n_resultados;
+                }
+                maiorTotal_anterior=maiorTotal;
+                valores[n]=maiorTotal_anterior;
+                n++;
+            }while (np>n);
         }
-        return melhor;
+        //top==false piores valores
+        if (!top){
+            for (int i = 0; i < distintos.length; i++) {
+                distintos[i][0]=Distintos(campo, path)[i];
+                distintos[i][1]=Double.toString(Total(distintos[i][0],campo,path,path2, percentagem));
+            }
+
+            //iniciar a var melhor com o primeiro valor do vetor
+            double menorTotal=Double.parseDouble(distintos[0][1]);
+            double menorTotal_anterior=Double.parseDouble(distintos[0][1])+1;
+
+            do {
+                int n_resultados=1;
+                for (int i = 0; i < distintos.length; i++) {
+                    if ((Double.parseDouble(distintos[i][1]))>menorTotal_anterior){
+                        menorTotal=Double.parseDouble(distintos[i][1]);
+                        break;
+                    }
+                }
+
+                //calcular o maior sumatório(maiorTotal)
+                for (int i = 1; i < distintos.length; i++) {
+                    double atual=Double.parseDouble(distintos[i][1]);
+                    if ((menorTotal>=atual)&&(atual>menorTotal_anterior)){
+                        if(menorTotal==atual){
+                            n_resultados++;//contar o nº de melhores
+                        }else {
+                            n_resultados=1;
+                            menorTotal=atual;
+                        }
+                    }
+                }
+                if (n_resultados>n_colunas){
+                    n_colunas=n_resultados;
+                }
+                menorTotal_anterior=menorTotal;
+                valores[n]=menorTotal_anterior;
+                n++;
+            }while (np>n);
+        }
+
+
+
+        //criar o vetor dos melhores
+        String[][] melhores=new String[np][n_colunas+1];
+        for (int i = 0; i < melhores.length; i++) {
+            int j=0;
+            for (int k = 0; k < distintos.length; k++) {
+                if ((Double.parseDouble(distintos[k][1]))==valores[i]){
+                    melhores[i][j]=distintos[k][0];
+                    j++;
+                }
+            }
+            melhores[i][n_colunas]=Double.toString(valores[i]);
+        }
+
+        return melhores;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         boolean logged;
-        String admins_path = "GameStart_Admins.csv";
-        String categorias_path = "GameStart_Categorias.csv";
-        String clientes_path = "GameStart_Clientes.csv";
-        String copyright_path = "GameStart_Copyright.txt";
-        String vendas_path = "GameStart_Vendas.csv";
+        String admins_path = "Files/GameStart_Admins.csv";
+        String categorias_path = "Files/GameStart_Categorias.csv";
+        String clientes_path = "Files/GameStart_Clientes.csv";
+        String copyright_path = "Files/GameStart_Copyright.txt";
+        String vendas_path = "Files/GameStart_Vendas.csv";
         String user_type, menu = null;
         Scanner input = new Scanner(System.in);
 
@@ -278,14 +390,14 @@ public class GameStart {
                 } while (!(user_type.equals("ADMIN") || user_type.equals("CLIENTE")));
 
                 switch (user_type) {
-                    case "ADMIN":
+                    case "ADMIN" -> {
                         logged = LoginADMIN(admins_path);
                         menu = user_type;
-                        break;
-                    case "CLIENTE":
+                    }
+                    case "CLIENTE" -> {
                         menu = user_type;
                         logged = true;
-                        break;
+                    }
                 }
             } while (!logged);
 
@@ -352,7 +464,24 @@ public class GameStart {
                             break;
 
                         case 6://Melhores Clientes
-
+                            String[][] top1=Melhores(1,"idCliente",true, vendas_path,categorias_path);
+                            for (int i = 0; i < (top1[0].length-1); i++) {
+                                String[][] pesquisa_case6_1=Pesquisa(top1[0][i],"idCliente",clientes_path);
+                                for (int j = 0; j < pesquisa_case6_1[0].length; j++) {
+                                    System.out.print("\t"+pesquisa_case6_1[0][i]);
+                                }
+                                System.out.println(": "+top1[0][top1.length-1]+" €");
+                                String[][] pesquisa_case6_2=Pesquisa(top1[0][i],"idCliente",vendas_path);
+                                System.out.println("Jogos:");
+                                for (int j = 0; j < pesquisa_case6_2.length; j++) {
+                                    System.out.print(" "+pesquisa_case6_2[i][4]);
+                                    if (j==(pesquisa_case6_2.length-1)){
+                                        System.out.print(".");
+                                    }else {
+                                        System.out.print(",");
+                                    }
+                                }
+                            }
                             break;
 
                         case 7://Melhor Categoria
