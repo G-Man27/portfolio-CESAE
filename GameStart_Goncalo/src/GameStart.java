@@ -558,7 +558,7 @@ public class GameStart {
                                     System.out.print("\t"+pesquisa_case6_1[0][j]);
                                 }
                                 System.out.println(": "+top1[0][top1[0].length-1]+" €");
-                                
+
                                 String[][] pesquisa_case6_2=Pesquisa(top1[0][i],"idCliente",vendas_path);
                                 System.out.println("Jogos:");
                                 for (int j = 0; j < pesquisa_case6_2.length; j++) {
