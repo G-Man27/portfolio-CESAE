@@ -131,29 +131,31 @@ public class GameStart {
      */
     public static String[][] Pesquisa(String valor, String campo, String path) throws FileNotFoundException {
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
-        int i, n_resultados = 0, linha = 0;
+        int i, n_resultados = 0, linha = 0,index=0;
 
 
         //encontrar o index da coluna(campo)
         for (i = 0; i < matriz[0].length; i++) {
             if (matriz[0][i].equals(campo)) {
+                index=i;
                 break;
             }
         }
         // contar nº ocorrencias do valor
         for (int j = 1; j < matriz.length; j++) {
-            if (matriz[j][i].equals(valor)) {
+            if (matriz[j][index].equals(valor)) {
                 n_resultados++;
             }
         }
         //criar matriz de resultados
         String[][] resultados = new String[n_resultados][matriz[0].length];
         for (int j = 1; j < matriz.length; j++) {
-            if (matriz[j][i].equals(valor)) {
+            if (matriz[j][index].equals(valor)) {
                 for (int k = 0; k < matriz[j].length; k++) {
                     resultados[linha][k] = matriz[j][k];
-                    linha++;
+
                 }
+                linha++;
             }
         }
 
@@ -170,11 +172,12 @@ public class GameStart {
      * @throws FileNotFoundException
      */
     public static String[] Distintos(String campo, String path) throws FileNotFoundException {
-        int i, contador = 0;
+        int l, contador = 0, i=-1;
         //encontrar index do campo
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
-        for (i = 0; i < matriz[0].length; i++) {
-            if (matriz[0][i].equals(campo)) {
+        for (l = 0; l < matriz[0].length; l++) {
+            if (matriz[0][l].equals(campo)) {
+                i=l;
                 break;
             }
         }
@@ -182,8 +185,8 @@ public class GameStart {
         //contar o número de resultados
         for (int j = 1; j < matriz.length; j++) {
             boolean distinct= true;
-            for (int k=j; k >1 ; k--) {
-                if (matriz[k][i].equals(matriz[k - 1][i])) {
+            for (int k=j; k >0 ; k--) {
+                if (matriz[k-1][i].equals(matriz[j][i])) {
                     distinct = false;
                     break;
                 }
@@ -195,8 +198,8 @@ public class GameStart {
         contador=0;
         for (int j = 1; j < matriz.length; j++) {
             boolean distinct= true;
-            for (int k=j; k >1 ; k--) {
-                if (matriz[k][i].equals(matriz[k - 1][i])) {
+            for (int k=j; k >0 ; k--) {
+                if (matriz[k-1][i].equals(matriz[j][i])) {
                     distinct = false;
                     break;
                 }
@@ -223,27 +226,39 @@ public class GameStart {
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
         String[][] matriz2 = TransformarCSVEmMatriz(path, ";");//matriz a usar para percentagens
         double soma = 0;
+        //System.out.println();
+        //System.out.println("Inicio da função");
         if (valor.equals("ALL")&&campo.equals("ALL")) {
             for (int i = 1; i < matriz.length; i++) {
                 if (!percentagem) {//Total de vendas
                     soma += Double.parseDouble(matriz[i][5]);
                 } else {//total lucro
                     String[][] linha = Pesquisa(matriz[i][3], matriz2[0][0], path2);//encontrar a categoria e margem correspondente
-                    soma += Double.parseDouble(matriz[i][5]) * Double.parseDouble(linha[0][1]);
+                    //System.out.print("Valor do Jogo: "+matriz[i][5]+"\t");
+                    //System.out.println("Margem: "+(Double.parseDouble(linha[0][1])/100));
+                    soma += Double.parseDouble(matriz[i][5]) * (Double.parseDouble(linha[0][1])/100);
+                    //System.out.println("Soma Atual: "+soma);
                 }
             }
         }else {
             String [][] matriz3=Pesquisa(valor,campo, path);
-            for (int i = 1; i < matriz3.length; i++) {
+            for (int i = 0; i < matriz3.length; i++) {
                 if (!percentagem) {//Total de vendas de valor
-                    soma += Double.parseDouble(matriz[i][5]);
+                    soma += Double.parseDouble(matriz3[i][5]);
                 } else {//total lucro de valor
-                    String[][] linha = Pesquisa(matriz[i][3], matriz2[0][0], path2);//encontrar a categoria e margem correspondente
-                    soma += Double.parseDouble(matriz[i][5]) * Double.parseDouble(linha[0][1]);
+                    String[][] linha = Pesquisa(matriz3[i][3], matriz2[0][0], path2);//encontrar a categoria e margem correspondente
+                    //System.out.print("Valor do Jogo: "+matriz3[i][5]+"\t");
+                    //System.out.println("Margem: "+(Double.parseDouble(linha[0][1])/100));
+                    //System.out.println("Valor de Lucro deste jogo: "+Double.parseDouble(matriz3[i][5]) * (Double.parseDouble(linha[0][1])/100));
+                    soma +=(Double.parseDouble(matriz3[i][5]) * (Double.parseDouble(linha[0][1])/100));
+                    //System.out.println("Soma Atual: "+soma);
+                    //System.out.println();
                 }
             }
         }
-
+        //System.out.println("Fim");
+        //System.out.println("Retorno: "+soma);
+        //System.out.println();
         return soma;
     }
 
@@ -258,30 +273,32 @@ public class GameStart {
      * @return matriz com os valores do top do campo e o total respetivo
      * @throws FileNotFoundException
      */
-    public static String[][] Melhores(int np, String campo, boolean top, String path, String path2) throws FileNotFoundException {
-        boolean percentagem;
+    public static String[][] Melhores(int np, String campo, boolean top, boolean percentagem, String path, String path2) throws FileNotFoundException {
         int n_colunas=0,n=0;
-        percentagem= campo.equals("categoria");
+
 
         //criar uma matriz com o nº de linhas = nº valores distintos do campo
         String [][] distintos=new String[Distintos(campo, path).length][2] ;
+
+        for (int i = 0; i < distintos.length; i++) {
+            distintos[i][0]=Distintos(campo, path)[i];
+            distintos[i][1]=Double.toString(Total(distintos[i][0],campo,path,path2, percentagem));
+        }
 
         //criar vetor com top valores
         double[] valores=new double[np];
 
         //top==true maiores valores
         if (top){
-            for (int i = 0; i < distintos.length; i++) {
-                distintos[i][0]=Distintos(campo, path)[i];
-                distintos[i][1]=Double.toString(Total(distintos[i][0],campo,path,path2, percentagem));
-            }
+
 
             //iniciar a var melhor com o primeiro valor do vetor
             double maiorTotal=Double.parseDouble(distintos[0][1]);
-            double maiorTotal_anterior=Double.parseDouble(distintos[0][1])+1;
+            double maiorTotal_anterior=9999999;
+
 
             do {
-                int n_resultados=1;
+                int n_resultados=0;
                 for (int i = 0; i < distintos.length; i++) {
                     if ((Double.parseDouble(distintos[i][1]))<maiorTotal_anterior){
                         maiorTotal=Double.parseDouble(distintos[i][1]);
@@ -290,7 +307,7 @@ public class GameStart {
                 }
 
                 //calcular o maior sumatório(maiorTotal)
-                for (int i = 1; i < distintos.length; i++) {
+                for (int i = 0; i < distintos.length; i++) {
                     double atual=Double.parseDouble(distintos[i][1]);
                     if ((maiorTotal<=atual)&&(atual<maiorTotal_anterior)){
                         if(maiorTotal==atual){
@@ -311,17 +328,14 @@ public class GameStart {
         }
         //top==false piores valores
         if (!top){
-            for (int i = 0; i < distintos.length; i++) {
-                distintos[i][0]=Distintos(campo, path)[i];
-                distintos[i][1]=Double.toString(Total(distintos[i][0],campo,path,path2, percentagem));
-            }
 
             //iniciar a var melhor com o primeiro valor do vetor
             double menorTotal=Double.parseDouble(distintos[0][1]);
-            double menorTotal_anterior=Double.parseDouble(distintos[0][1])+1;
+            double menorTotal_anterior=-1;
+
 
             do {
-                int n_resultados=1;
+                int n_resultados=0;
                 for (int i = 0; i < distintos.length; i++) {
                     if ((Double.parseDouble(distintos[i][1]))>menorTotal_anterior){
                         menorTotal=Double.parseDouble(distintos[i][1]);
@@ -330,7 +344,7 @@ public class GameStart {
                 }
 
                 //calcular o maior sumatório(maiorTotal)
-                for (int i = 1; i < distintos.length; i++) {
+                for (int i = 0; i < distintos.length; i++) {
                     double atual=Double.parseDouble(distintos[i][1]);
                     if ((menorTotal>=atual)&&(atual>menorTotal_anterior)){
                         if(menorTotal==atual){
@@ -356,6 +370,7 @@ public class GameStart {
         String[][] melhores=new String[np][n_colunas+1];
         for (int i = 0; i < melhores.length; i++) {
             int j=0;
+
             for (int k = 0; k < distintos.length; k++) {
                 if ((Double.parseDouble(distintos[k][1]))==valores[i]){
                     melhores[i][j]=distintos[k][0];
@@ -366,6 +381,55 @@ public class GameStart {
         }
 
         return melhores;
+    }
+
+    /**
+     * Encontra o(s) jogo(s) mais caro(s)
+     * @param path caminho das vendas
+     * @return String[] com o(s) nome(s) do(s) jogo(s) mais caro(s) e o respetivo valor
+     * @throws FileNotFoundException
+     */
+    public static String[] MaisCaro(String path) throws FileNotFoundException {
+        //criar matriz vendas
+        String[][] vendas=TransformarCSVEmMatriz(path,";");
+        //criar matriz com a lista de jogos e o respetivo valor
+        String [][] distintos=new String[Distintos("jogo", path).length][2] ;
+        for (int i = 0; i < distintos.length; i++) {
+            distintos[i][0]=Distintos("jogo", path)[i];
+            for (int j = 0; j < vendas.length; j++) {
+                if (vendas[j][4].equals(distintos[i][0])) {
+                    distintos[i][1]=vendas[j][5];
+                    break;
+                }
+            }
+        }
+        //inicializar a var maior com o valor do 1º jogo na matriz distintos
+        double maior=Double.parseDouble(distintos[0][1]);
+
+        //contador de resultados
+        int n_resultados=1;
+
+        //Encontrar o valor do jogo mais caro
+        for (int i = 1; i < distintos.length; i++) {
+            if (maior<=Double.parseDouble(distintos[i][1])){
+                if(maior==Double.parseDouble(distintos[i][1])){
+                    n_resultados++;//contar o nº de maiores
+                }else {
+                    n_resultados=1;
+                    maior=Double.parseDouble(distintos[i][1]);
+                }
+            }
+        }
+        String[] mais_caro=new String[n_resultados+1];
+        mais_caro[n_resultados]=Double.toString(maior);
+        n_resultados=0;
+        for (int i = 0; i < (distintos.length); i++) {
+            if (Double.parseDouble(distintos[i][1]) == maior){
+                mais_caro[n_resultados]=distintos[i][0];
+                n_resultados++;
+            }
+        }
+        return mais_caro;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -416,6 +480,7 @@ public class GameStart {
                     System.out.println(" 8. Pesquisa Vendas");
                     System.out.println(" 9. Top 5 Jogos");
                     System.out.println(" 10. Bottom 5 jogos");
+                    System.out.println(" 11. Sair");
 
                     System.out.print("Escolha uma opção: ");
                     opcao = input.nextInt();
@@ -441,14 +506,17 @@ public class GameStart {
                                     System.out.println("opção inválida");
                                     break;
                             }
+                            System.out.println("\n");
                             break;
 
                         case 2://Total de Vendas
                             System.out.println("Total de vendas: "+Total("ALL","All", vendas_path,categorias_path,false)+" €");
+                            System.out.println("\n");
                             break;
 
                         case 3://Total de Lucro
                             System.out.println("Total de lucro: "+Total("ALL","All", vendas_path,categorias_path,true)+" €");
+                            System.out.println("\n");
                             break;
 
                         case 4://Pesquisa de Cliente
@@ -457,20 +525,40 @@ public class GameStart {
                             for (int i = 1; i < cliente[0].length; i++) {
                                 System.out.print("\t"+cliente[0][i]);
                             }
+                            System.out.println("\n");
                             break;
 
                         case 5://Jogo mais caro
+                            System.out.println("O(s) jogo(s) mais caro(s) custa "+MaisCaro(vendas_path)[MaisCaro(vendas_path).length-1]+" €");
+                            System.out.print("O(s) jogo(s) mais caro(s): ");
+                            for (int i = 0; i < (MaisCaro(vendas_path).length-1); i++) {
+                                System.out.println(MaisCaro(vendas_path)[i]);
+                                System.out.println("Clientes que o compraram:");
+                                //imprime na consola os clientes que compraram o jogo
+                                for (int j = 0; j < ((Pesquisa(MaisCaro(vendas_path)[i],"jogo",vendas_path)).length); j++) {
+                                    String cliente_id=Pesquisa(MaisCaro(vendas_path)[i],"jogo",vendas_path)[j][1]; // vetor com os ids dos clientes que compraram o jogo
 
+                                    for (int k = 0; k < Pesquisa(cliente_id,"idCliente",clientes_path).length; k++) {
+                                        for (int l = 0; l < Pesquisa(cliente_id,"idCliente",clientes_path)[0].length; l++) {
+                                            System.out.print("\t"+Pesquisa(cliente_id,"idCliente",clientes_path)[k][l]);
+                                        }
+                                        System.out.println();
+                                    }
+                                }
+                            }
+                            System.out.println("\n");
                             break;
 
                         case 6://Melhores Clientes
-                            String[][] top1=Melhores(1,"idCliente",true, vendas_path,categorias_path);
+                            System.out.println();
+                            String[][] top1=Melhores(1,"idCliente",true,false, vendas_path,categorias_path);
                             for (int i = 0; i < (top1[0].length-1); i++) {
                                 String[][] pesquisa_case6_1=Pesquisa(top1[0][i],"idCliente",clientes_path);
                                 for (int j = 0; j < pesquisa_case6_1[0].length; j++) {
-                                    System.out.print("\t"+pesquisa_case6_1[0][i]);
+                                    System.out.print("\t"+pesquisa_case6_1[0][j]);
                                 }
-                                System.out.println(": "+top1[0][top1.length-1]+" €");
+                                System.out.println(": "+top1[0][top1[0].length-1]+" €");
+                                
                                 String[][] pesquisa_case6_2=Pesquisa(top1[0][i],"idCliente",vendas_path);
                                 System.out.println("Jogos:");
                                 for (int j = 0; j < pesquisa_case6_2.length; j++) {
@@ -482,29 +570,62 @@ public class GameStart {
                                     }
                                 }
                             }
+                            System.out.println("\n");
                             break;
 
                         case 7://Melhor Categoria
-
+                            for (int i = 0; i < Melhores(1,"categoria",true,true,vendas_path,categorias_path)[0].length; i++) {
+                                System.out.print("\t"+Melhores(1,"categoria",true,true,vendas_path,categorias_path)[0][i]);
+                            }
+                            System.out.println("€");
+                            System.out.println("\n");
                             break;
 
                         case 8://Pesquisa Vendas
+                            System.out.print("Insira o nome do jogo a pesquisar: ");
+                            input.nextLine();
+                            String pesquisa_case8=input.nextLine();
 
+                            for (int j = 0; j < (Pesquisa(pesquisa_case8,"jogo",vendas_path)).length; j++) {
+                                String cliente_id=Pesquisa(pesquisa_case8,"jogo",vendas_path)[j][1]; // vetor com os ids dos clientes que compraram o jogo
+
+                                for (int k = 0; k < Pesquisa(cliente_id,"idCliente",clientes_path).length; k++) {
+                                    for (int l = 0; l < Pesquisa(cliente_id,"idCliente",clientes_path)[0].length; l++) {
+                                        System.out.print("\t"+Pesquisa(cliente_id,"idCliente",clientes_path)[k][l]);
+                                    }
+                                    System.out.println();
+                                }
+                            }
+                            System.out.println("\n");
                             break;
 
                         case 9://Top 5 Jogos
-
+                            for (int i = 0; i < Melhores(5,"jogo",true,true,vendas_path,categorias_path).length; i++) {
+                                for (int j = 0; j < Melhores(5,"jogo",true,true,vendas_path,categorias_path)[i].length; j++) {
+                                    System.out.print("\t"+Melhores(5,"jogo",true,true,vendas_path,categorias_path)[i][j]);
+                                }
+                                System.out.println("€");
+                            }
+                            System.out.println("\n");
                             break;
 
                         case 10:// Bottom 5 jogos
-
+                            for (int i = 0; i < Melhores(5,"jogo",false,true,vendas_path,categorias_path).length; i++) {
+                                for (int j = 0; j < Melhores(5,"jogo",false,true,vendas_path,categorias_path)[i].length; j++) {
+                                    System.out.print("\t"+Melhores(5,"jogo",false,true,vendas_path,categorias_path)[i][j]);
+                                }
+                                System.out.println("€");
+                            }
+                            System.out.println("\n");
                             break;
                         case 11:
                             System.out.println("A sair................");
+                            System.out.println("\n");
                             break;
 
                         default:
                             System.out.println("Opção inválida");
+                            System.out.println("\n");
                             break;
                     }
                 } while (opcao != 11);
