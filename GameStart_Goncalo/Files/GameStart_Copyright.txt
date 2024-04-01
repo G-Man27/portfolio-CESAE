@@ -2,7 +2,7 @@
 (__   ____________________________________________   __)
    | |                                            | |
    | |             Desenvolvido por:              | |
-   | |               Vitor Santos                 | |
+   | |               Gonçalo Oliveira                 | |
    | |                                            | |
    | |         Software Developer - CESAE         | |
    | |                                            | |

@@ -162,19 +162,109 @@ public class GameStart {
         return resultados;
     }
 
+    /**
+     * Pesquisar
+     *
+     * @param valor valor a pesquisar
+     * @param campo nome da coluna onde pesquisar
+     * @param matriz  matriz onde pesquisar
+     * @return matriz com os restultados da pesquisa
+     */
+    public static String[][] Pesquisa2(String valor, String campo, String[][] matriz) {
+        int i, n_resultados = 0, linha = 0,index=0;
+
+
+        //encontrar o index da coluna(campo)
+        for (i = 0; i < matriz[0].length; i++) {
+            if (matriz[0][i].equals(campo)) {
+                index=i;
+                break;
+            }
+        }
+        // contar nº ocorrencias do valor
+        for (int j = 1; j < matriz.length; j++) {
+            if (matriz[j][index].equals(valor)) {
+                n_resultados++;
+            }
+        }
+        //criar matriz de resultados
+        String[][] resultados = new String[n_resultados+1][matriz[0].length];
+        for (int k = 0; k < matriz[0].length; k++) {
+            resultados[linha][k] = matriz[0][k];
+        }
+        linha++;
+        for (int j = 1; j < matriz.length; j++) {
+            if (matriz[j][index].equals(valor)) {
+                for (int k = 0; k < matriz[j].length; k++) {
+                    resultados[linha][k] = matriz[j][k];
+
+                }
+                linha++;
+            }
+        }
+
+        return resultados;
+    }
+
 
 
     /**
-     * Cria um vetor com os valores distintos de um capo
+     * Cria um vetor com os valores distintos de um campo
      * @param campo nome do campo para o qual queremos os valores distintos
      * @param path caminho do ficheiro
-     * @return
+     * @return distintos: vetor com os valores distintos de um campo
      * @throws FileNotFoundException
      */
     public static String[] Distintos(String campo, String path) throws FileNotFoundException {
         int l, contador = 0, i=-1;
         //encontrar index do campo
         String[][] matriz = TransformarCSVEmMatriz(path, ";");
+        for (l = 0; l < matriz[0].length; l++) {
+            if (matriz[0][l].equals(campo)) {
+                i=l;
+                break;
+            }
+        }
+
+        //contar o número de resultados
+        for (int j = 1; j < matriz.length; j++) {
+            boolean distinct= true;
+            for (int k=j; k >0 ; k--) {
+                if (matriz[k-1][i].equals(matriz[j][i])) {
+                    distinct = false;
+                    break;
+                }
+            }
+            if (distinct) contador++;
+        }
+        //criar o vetor com os resultados
+        String[] distintos=new String[contador];
+        contador=0;
+        for (int j = 1; j < matriz.length; j++) {
+            boolean distinct= true;
+            for (int k=j; k >0 ; k--) {
+                if (matriz[k-1][i].equals(matriz[j][i])) {
+                    distinct = false;
+                    break;
+                }
+            }
+            if (distinct) {
+                distintos[contador]=matriz[j][i];
+                contador++;
+            }
+        }
+        return distintos;
+    }
+
+    /**
+     * Cria um vetor com os valores distintos de um campo
+     * @param campo nome do campo para o qual queremos os valores distintos
+     * @param matriz matriz onde fazer a procura
+     * @return distintos: vetor com os valores distintos de um campo
+     */
+    public static String[] Distintos2(String campo, String[][] matriz) {
+        int l, contador = 0, i=-1;
+        //encontrar index do campo
         for (l = 0; l < matriz[0].length; l++) {
             if (matriz[0][l].equals(campo)) {
                 i=l;
@@ -484,6 +574,7 @@ public class GameStart {
 
                     System.out.print("Escolha uma opção: ");
                     opcao = input.nextInt();
+                    System.out.println();
 
                     switch (opcao) {
                         case 1://Consulta de Ficheiros
@@ -492,6 +583,7 @@ public class GameStart {
                             System.out.println("3. Categorias");
                             System.out.print("Que ficheiro deseja ver: ");
                             int opcao2=input.nextInt();
+                            System.out.println();
                             switch (opcao2){
                                 case 1:
                                     ImprimirFicheiro(vendas_path);
@@ -510,12 +602,12 @@ public class GameStart {
                             break;
 
                         case 2://Total de Vendas
-                            System.out.println("Total de vendas: "+Total("ALL","All", vendas_path,categorias_path,false)+" €");
+                            System.out.println("Total de vendas: "+Total("ALL","ALL", vendas_path,categorias_path,false)+" €");
                             System.out.println("\n");
                             break;
 
                         case 3://Total de Lucro
-                            System.out.println("Total de lucro: "+Total("ALL","All", vendas_path,categorias_path,true)+" €");
+                            System.out.println("Total de lucro: "+Total("ALL","ALL", vendas_path,categorias_path,true)+" €");
                             System.out.println("\n");
                             break;
 
@@ -550,7 +642,7 @@ public class GameStart {
                             break;
 
                         case 6://Melhores Clientes
-                            System.out.println();
+                            System.out.println("O(s) melhor(es) cliente(s):");
                             String[][] top1=Melhores(1,"idCliente",true,false, vendas_path,categorias_path);
                             for (int i = 0; i < (top1[0].length-1); i++) {
                                 String[][] pesquisa_case6_1=Pesquisa(top1[0][i],"idCliente",clientes_path);
@@ -562,7 +654,7 @@ public class GameStart {
                                 String[][] pesquisa_case6_2=Pesquisa(top1[0][i],"idCliente",vendas_path);
                                 System.out.println("Jogos:");
                                 for (int j = 0; j < pesquisa_case6_2.length; j++) {
-                                    System.out.print(" "+pesquisa_case6_2[i][4]);
+                                    System.out.print(" "+pesquisa_case6_2[j][4]);
                                     if (j==(pesquisa_case6_2.length-1)){
                                         System.out.print(".");
                                     }else {
@@ -574,6 +666,7 @@ public class GameStart {
                             break;
 
                         case 7://Melhor Categoria
+                            System.out.println("A melhor categoria:");
                             for (int i = 0; i < Melhores(1,"categoria",true,true,vendas_path,categorias_path)[0].length; i++) {
                                 System.out.print("\t"+Melhores(1,"categoria",true,true,vendas_path,categorias_path)[0][i]);
                             }
@@ -600,6 +693,7 @@ public class GameStart {
                             break;
 
                         case 9://Top 5 Jogos
+                            System.out.println("Top 5:");
                             for (int i = 0; i < Melhores(5,"jogo",true,true,vendas_path,categorias_path).length; i++) {
                                 for (int j = 0; j < Melhores(5,"jogo",true,true,vendas_path,categorias_path)[i].length; j++) {
                                     System.out.print("\t"+Melhores(5,"jogo",true,true,vendas_path,categorias_path)[i][j]);
@@ -610,6 +704,7 @@ public class GameStart {
                             break;
 
                         case 10:// Bottom 5 jogos
+                            System.out.println("Bottom 5:");
                             for (int i = 0; i < Melhores(5,"jogo",false,true,vendas_path,categorias_path).length; i++) {
                                 for (int j = 0; j < Melhores(5,"jogo",false,true,vendas_path,categorias_path)[i].length; j++) {
                                     System.out.print("\t"+Melhores(5,"jogo",false,true,vendas_path,categorias_path)[i][j]);
@@ -644,12 +739,27 @@ public class GameStart {
                     System.out.println(" 5. Imprimir Catálogo Editora");
                     System.out.println(" 6. Imprimir Catálogo Categoria");
                     System.out.println(" 7. Imprimir jogo mais recente");
+                    System.out.println(" 8. Sair");
 
                     System.out.print("Escolha uma opção: ");
                     opcao = input.nextInt();
+                    System.out.println();
 
                     switch (opcao) {
                         case 1://Novo Registo
+                            System.out.println("Inserir Cliente\n");
+                            System.out.print("Insira Nome: ");
+                            input.nextLine();
+                            String registo_nome=input.nextLine();
+                            System.out.println();
+                            System.out.print("Insira Contacto: ");
+                            String registo_contacto=input.nextLine();
+                            System.out.println();
+                            System.out.print("Insira Email: ");
+                            String registo_email=input.nextLine();
+                            System.out.println();
+
+                            System.out.println("Cliente Inserido com Sucesso: "+registo_nome+" | "+registo_contacto +" | "+registo_email);
 
                             break;
 
@@ -658,26 +768,94 @@ public class GameStart {
                             break;
 
                         case 3://Imprimir Catálogo
+                            System.out.println("Catálogo de jogos:");
+                            String[] catalogo_jogos=Distintos("jogo",vendas_path);
+                            for (int i = 0; i < catalogo_jogos.length; i++) {
+                                System.out.println(catalogo_jogos[i]);
+                            }
+                            System.out.println();
 
                             break;
 
                         case 4://Imprimir Catálogos Gráficos
+                            System.out.println("Da seguinte lista de jogos com arte gráfica: (Call of Duty, Fifa, Hollow Knight, Mortal Kombat, Overcooked, Witcher 3: Wild Hunt, Minecraft)");
+                            System.out.println("1. Call of Duty | 2. Fifa | 3. Hollow Knight | 4. Mortal Kombat | 5. Overcooked | 6. Witcher 3: Wild Hunt | 7. Minecraft");
+                            System.out.print("Escolhe o jogo (nº da opção): ");
+                            switch (input.nextInt()){
+                                case 1:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/callOfDuty.txt");
+                                    break;
+                                case 2:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/fifa.txt");
+                                    break;
+                                case 3:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/hollowKnight.txt");
+                                    break;
+                                case 4:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/mortalKombat.txt");
+                                    break;
+                                case 5:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/overcooked.txt");
+                                    break;
+                                case 6:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/witcher3.txt");
+                                    break;
+                                case 7:
+                                    ImprimirFicheiro("Files/CatalogoGrafico/minecraft.txt");
+                                    break;
+                                default:
+                                    System.out.println("Opção inválida");
+                                    break;
+                            }
 
                             break;
 
                         case 5://Imprimir Catálogo Editora
+                            System.out.print("Editora a pesquisar: ");
+                            input.nextLine();
+                            String catalogo_editora_nome = input.nextLine();
+                            System.out.println();
+                            String[][] catalogo_editora=Pesquisa2(catalogo_editora_nome,"editora",TransformarCSVEmMatriz(vendas_path,";"));
+                            System.out.println("*****"+catalogo_editora_nome+"*****\n");
+                            for (int i = 0; i < Distintos2("categoria",catalogo_editora).length; i++) {
+                                System.out.println("__"+Distintos2("categoria",catalogo_editora)[i]+"__");
+                                for (int j = 0; j < Distintos2("jogo",Pesquisa2(Distintos2("categoria",catalogo_editora)[i],"categoria",catalogo_editora)).length; j++) {
+                                    System.out.println(Distintos2("jogo",Pesquisa2(Distintos2("categoria",catalogo_editora)[i],"categoria",catalogo_editora))[j]);
+
+                                }
+                                System.out.println();
+                            }
 
                             break;
 
                         case 6://Imprimir Catálogo Categoria
+                            System.out.print("Categoria a pesquisar: ");
+                            input.nextLine();
+                            String catalogo_categoria_nome = input.nextLine();
+                            System.out.println();
+                            String[][] catalogo_categoria=Pesquisa2(catalogo_categoria_nome,"categoria",TransformarCSVEmMatriz(vendas_path,";"));
+                            System.out.println("*****"+catalogo_categoria_nome+"*****\n");
+                            for (int i = 0; i < Distintos2("editora",catalogo_categoria).length; i++) {
+                                System.out.println("__"+Distintos2("editora",catalogo_categoria)[i]+"__");
+                                for (int j = 0; j < Distintos2("jogo",Pesquisa2(Distintos2("editora",catalogo_categoria)[i],"editora",catalogo_categoria)).length; j++) {
+                                    System.out.println(Distintos2("jogo",Pesquisa2(Distintos2("editora",catalogo_categoria)[i],"editora",catalogo_categoria))[j]);
+
+                                }
+                                System.out.println();
+                            }
+
 
                             break;
 
                         case 7://Imprimir jogo mais recente
+                            System.out.println("O jogo mais recente é:");
+                            System.out.println(Distintos("jogo",vendas_path)[Distintos("jogo",vendas_path).length-1]);
+                            System.out.println();
 
                             break;
                         case 8:
                             System.out.println("A sair................");
+                            System.out.println("\n");
                             break;
 
                         default:
@@ -695,6 +873,9 @@ public class GameStart {
                     break;
                 case 2:
                     logged = false;
+                    System.out.println("Logout....");
+                    System.out.println("A Terminar....");
+                    ImprimirFicheiro(copyright_path);
                     break;
             }
 
