@@ -1,0 +1,39 @@
+/* SPICMED CSS */
+:root{
+    --vermelho: #e51c15;
+    --verde_marinho: rgb(6, 224, 170) ;
+    --branco: #fff;
+    --cinzento: #aaa;
+    --preto: #000;
+}
+
+header{
+    background-color: var(--branco);
+}
+
+.btn{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: 1px solid var(--branco);
+}
+.btn:hover{
+    background-color: var(--branco);
+    color: var(--vermelho);
+    border: 1px solid var(--vermelho);
+}
+.badge{
+    background-color: var(--vermelho);
+    color: var(--branco);
+    border: 1 px solid var(--branco);
+}
+
+footer{
+    background-color: var(--verde_marinho);
+    color: var(--preto);
+}
+footer a{
+    color: var(--preto);
+    border: 1px dashed var(--preto);
+    padding: 5px;
+    border-radius: 110%;
+}
