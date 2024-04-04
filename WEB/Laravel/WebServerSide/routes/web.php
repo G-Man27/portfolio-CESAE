@@ -1,31 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\IndexController;
 
-Route::get('/', function () {
-    return redirect('/home');
-});
+Route::get('/', [IndexController::class,'redirect']);
 
-Route::fallback(function(){
-    return view('errors.fallback');
-});
+Route::fallback([IndexController::class,'fallback']);
 
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('home.welcome');
 
-Route::get('/hello', function () {
-    return view('hello');
-})->name('home.hello');
+Route::get('/hello/{name?}', [IndexController::class,'hello'])->name('home.hello');
 
-Route::get('/hello/{name}', function ($name) {
-    return '<h2>Olá '.$name.'</h2>';
-});
+Route::get('/home', [IndexController::class,'index'])->name('home');
 
-Route::get('/home', function () {
-    return view('home.index');
-})->name('home');
-
-Route::get('/users', function () {
-    return view('users.all_users');
-})->name('users');
+Route::get('/users', [UserController::class, 'allUsers'])->name('users');
