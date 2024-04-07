@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h4>Olá, estou em casa!</h4>
+@extends('layouts.fe')
+
+@section('title')
+    <title>Home</title>
+@endsection
+
+@section('content')
+    <div style="text-align: center">
+        <img class="test_img" src="{{asset('img\sample-image.jpg')}}" alt="">
+    </div>
+    <h3>Olá, estou em casa!</h3>
     <ul>
         <a href="{{route('home.welcome')}}">
             <li>Welcome</li>
@@ -18,5 +20,4 @@
             <li>Users</li>
         </a>
     </ul>
-</body>
-</html>
+@endsection
