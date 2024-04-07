@@ -49,17 +49,17 @@ where c.cliente_id = o.cliente_id and o.data_fim > getdate();
 --5
 insert into cliente (nome) values ('Gonçalo'), ('António');
 select * from cliente;
-insert into contrato (data_inicio, data_fim, cliente_id) values ('2021-11-15', '2024-11-21', 1003), ('2021-05-27', '2024-05-31', 1002);
+insert into contrato (data_inicio, data_fim, cliente_id) values ('2021-05-27', '2024-05-31', 3),('2021-11-15', '2024-11-21', 4);
 select * from contrato;
-insert into elevador (contrato_id, marca) values (1003,'XPTO'), (1002,'XPTO10'),(1003,'XPTO10');
+insert into elevador (contrato_id, marca) values (4,'XPTO'), (5,'XPTO10'),(4,'XPTO10');
 select * from elevador;
-insert into visita (contrato_id, data_visita, tecnico_id) values (1002,'2021-11-9', 101), (1003,'2021-11-9', 102);
+insert into visita (contrato_id, data_visita, tecnico_id) values (4,'2021-11-9', 101), (5,'2021-11-9', 102);
 select * from visita;
-insert into relatorio (elevador_id, visita_id) values (1002,1003);
+insert into relatorio (elevador_id, visita_id) values (5,6);
 select * from relatorio;
-insert into proposta (relatorio_id, aceite) values (2,1);
+insert into proposta (relatorio_id, aceite) values (3,1);
 select * from proposta;
-insert into pecas_proposta (proposta_id, peca_id, custo) values (2,1005,10.3), (2,1006,20);
+insert into pecas_proposta (proposta_id, peca_id, custo) values (3,1005,10.3), (3,1006,20);
 select * from pecas_proposta;
 
 --6
@@ -82,7 +82,7 @@ select e.contrato_id,COUNT(e.elevador_id) as contagem
 
 --d)
 insert into visita(contrato_id,data_visita,tecnico_id)
-	values(1003,'2021-5-27',101), (2,'2021-5-9',102);
+	values(4,'2021-5-27',101), (2,'2021-5-9',102);
 
 select v.tecnico_id
 	from elevador e, visita v
@@ -97,3 +97,7 @@ select e.contrato_id as 'contrato_id (ativo)',COUNT(e.elevador_id) as nº_elevado
 	where e.contrato_id=c.contrato_id and c.data_fim>GETDATE()
 	group by e.contrato_id
 	having COUNT(e.elevador_id)>1;
+
+--f)
+select *
+from vis

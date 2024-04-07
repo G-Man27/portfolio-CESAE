@@ -37,3 +37,20 @@ footer a{
     padding: 5px;
     border-radius: 110%;
 }
+.carousel-control-next{
+    background-color: rgba(68, 67, 67, 0.308);
+    border-radius: 100%;
+        
+}
+.carousel-control-prev{
+    background-color: rgba(68, 67, 67, 0.308);
+    border-radius: 100%;
+        
+}
+nav{
+    background-color: rgba(127, 255, 212, 0.63);
+}
+
+.nav-link:hover{
+    color: blue;
+}

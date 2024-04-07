@@ -1,0 +1,25 @@
+Funcionais:
+-Homepage com tabela:nome da banda, uma foto da mesma e o número de álbuns criados(na aplicação);
+-filtro por nome da banda;
+-para cada banda botão que abre outra tabela:nome do álbum, imagem, data de lançamento e a lista de músicas do álbum;
+-sistema de registo, login e recuperação de password de Users;
+-Dashboard que diga: ‘Olá, nome do utilizador’ e contenha atalhos para as funcionalidades a que o user autenticado está habilitado;
+
+Não funcionais:
+-3 perfis de autenticação:
+ ➢o administrador insere, apaga e edita bandas e álbuns. Tem também acesso a todos os users registados na aplicação e pode apagar contas no caso de abuso por parte de um user das funcionalidades da aplicação.
+ ➢Um User autenticado consegue editar conteúdos, mas não consegue apagar ou inserir. Os users autenticados podem também ouvir as músicas existentes na aplicação.
+ ➢Os Users não autenticados apenas podem visualizar conteúdos.
+-7 tabelas: principal,albuns,albuns_musica,musicas,users,usertype_funcionalidades,funcionalidades;
+-tabela musicas: nome da música,ficheiro mp4;
+-API que reprouduz os ficheiros mp4;
+-nome da banda(PK da tabela principal e FK na tabela dos albuns);
+-número de álbuns criados: campo calculado(COUNT(nome da banda) na tabela albuns);
+-O sistema de registo deve solicitar um email, password e tipo de user. Caso seja seleccionado o tipo de user admin, é enviado para o email um link para colocação do código de validação de admin (dado pelo gestor da aplicação). O registo de admin fica concluído caso o código esteja correcto. Caso esteja incorrecto, fica registado como user básico.
+-guardar bandas,albuns e musicas com favoritos(apurado em reunião com o cliente);
+-RGPD complience
+-Copyrights complience
+-backup
+-armazenamento em cache
+
+ 
