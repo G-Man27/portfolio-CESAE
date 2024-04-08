@@ -101,3 +101,34 @@ select e.contrato_id as 'contrato_id (ativo)',COUNT(e.elevador_id) as nº_elevado
 --f)
 select *
 from vis
+
+--m2
+select *
+	from elevador e, contrato c, visita v
+	where e.contrato_id= c.contrato_id and c.contrato_id=v.contrato_id 
+		  and e.elevador_id in(
+								select e.elevador_id
+									from elevador e
+										 inner join contrato c on e.contrato_id= c.contrato_id
+										 inner join visita v on c.contrato_id=v.contrato_id
+									group by e.elevador_id
+										having count(v.data_visita)>1
+							   )
+
+--7
+--a)
+go
+create trigger trg_verifica_datas_contrato
+on contrato instead of insert as
+begin
+	if (select data_inicio from inserted)>(select data_fim from inserted)
+		begin
+			raiserror('A data de inicio do contrato não pode ser superior a data do fim do contrato',16,1)
+		end
+	else
+		begin
+			insert into contrato(data_inicio,data_fim,cliente_id)
+			select data_inicio, data_fim, cliente_id from inserted
+		end
+end
+
