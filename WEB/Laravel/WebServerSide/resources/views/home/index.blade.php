@@ -20,4 +20,18 @@
             <li>Users</li>
         </a>
     </ul>
+
+    <hr>
+    <h5>A soma é {{$sum}}, {{$hellovar}}!</h5>
+    <h6>Primeira STRING: {{$hellovar}}.</h6>
+    <h5>{{$myArray[1]}}</h5>
+    <h5>A {{$myArray2[0]}} tem {{$myArray2[1]}} anos</h5>
+    <h5>A {{$myArrayAssociativo['name']}} tem {{$myArrayAssociativo['age']}} anos e trabalha como {{$myArrayAssociativo['profession']}}</h5>
+
+    <hr>
+    <h5>Info de {{$cesaeInfo['name']}}:</h5>
+    <ul>
+        <li>{{$cesaeInfo['address']}}</li>
+        <li>{{$cesaeInfo['email']}}</li>
+    </ul>
 @endsection
