@@ -13,12 +13,12 @@ public class Circulo {
         return raio;
     }
 
-    public double area(){
+    public double getArea(){
         double area=PI*Math.pow(this.raio,2);
         return area;
     }
 
-    public double perimetro(){
+    public double getCircunferencia(){
         double perimetro=2*PI*this.raio;
         return perimetro;
     }

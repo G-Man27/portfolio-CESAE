@@ -6,6 +6,9 @@ public class Calculadora {
         System.out.println(soma);
     }
 
+    public Calculadora() {
+    }
+
     public void diferenca(double n1, double n2){
         System.out.println(n1-n2);
     }

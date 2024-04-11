@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Circulo circulo=new Circulo(6);
 
-        System.out.println("perimetro circulo = " + circulo.perimetro());
-        System.out.println("area circulo = " + circulo.area());
+        System.out.println("circunferencia circulo = " + circulo.getCircunferencia());
+        System.out.println("area circulo = " + circulo.getArea());
     }
 }

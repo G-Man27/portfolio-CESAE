@@ -16,10 +16,10 @@ public class Livro {
     }
 
     public void exibirDetalhes(){
-        System.out.println("titulo = " + titulo);
-        System.out.println("autor = " + autor);
-        System.out.println("categoria = " + categoria);
-        System.out.println("n_paginas = " + n_paginas);
-        System.out.println("isbn = " + isbn);
+        System.out.println("titulo : " + titulo);
+        System.out.println("autor : " + autor);
+        System.out.println("categoria : " + categoria);
+        System.out.println("n_paginas : " + n_paginas);
+        System.out.println("isbn : " + isbn);
     }
 }
