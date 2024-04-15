@@ -1,4 +1,4 @@
-package Ex_2;
+package Ex_02;
 
 public class Conta {
     private String n_conta = "000000000";
