@@ -44,4 +44,7 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+    public void exibirDetalhes() {
+        System.out.printf("%s | %d | %s | %s%n",this.getNome(),this.getIdade(),this.getTelemovel(),this.getEmail());
+    }
 }
