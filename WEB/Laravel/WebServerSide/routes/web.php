@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TasksController;
 
 Route::get('/', [IndexController::class,'redirect']);
 
@@ -17,3 +18,13 @@ Route::get('/hello/{name?}', [IndexController::class,'hello'])->name('home.hello
 Route::get('/home', [IndexController::class,'index'])->name('home');
 
 Route::get('/users', [UserController::class, 'allUsers'])->name('users');
+
+Route::get('/user/{name?}', [UserController::class, 'viewUser_name'])->name('users.view');
+
+Route::get('/user/user_id/{id}', [UserController::class, 'viewUser'])->name('user.view');
+
+Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
+
+Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
+
+Route::get('/tasks', [TasksController::class, 'allTasks'])->name('tasks');

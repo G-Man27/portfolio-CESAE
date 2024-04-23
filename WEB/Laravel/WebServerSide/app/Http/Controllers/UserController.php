@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,7 +17,30 @@ class UserController extends Controller
     return view('users.all_users',compact('allUsers'/*,'allUsersInfo'*/,));
     }
 
-/*     protected function getUsers(){
+    public function viewUser_name(?string $name = null) {
+        if ($name==null){
+            $users=null;
+            return view('users.user_view',compact('users'));
+        }else{
+            $users=User::where('name','like',$name)->get();
+            return view('users.user_view',compact('users'));
+        }
+    }
+
+    public function viewUser($id){
+        $users=User::where('id',$id)->get();
+        return view('users.user_view',compact('users'));
+    }
+
+    public function deleteUser($id){
+        Task::where('user_id',$id)->update(['user_id'=>null]);
+        User::where('id',$id)->delete();
+        return redirect()->back();
+    }
+
+
+
+    /*     protected function getUsers(){
         $users=[
             [1,'Ana','912226847'],
             [2,'Luís','915156414'],
@@ -26,12 +52,18 @@ class UserController extends Controller
     }
  */
     protected function getUsers(){
-        $users=[
+/*         $users=[
             ['id'=>1, 'name'=>'Ana', 'phone'=>'912226847'],
             ['id'=>2, 'name'=>'Luís', 'phone'=>'915156414'],
             ['id'=>3, 'name'=>'Miguel', 'phone'=>'915551782'],
             ['id'=>4, 'name'=>'Jessica', 'phone'=>'351+ 956915397'],
-        ];
+        ]; */
+
+        $users=DB::table('users')
+            //->where('name','Sara')
+            ->get();
+
+        //dd($users);
 
         return $users;
     }
@@ -51,4 +83,34 @@ class UserController extends Controller
         ];
         return $usersInfo;
     }*/
+
+    public function addUser() {
+        User::
+        /* insert([
+            'name'=>'Luís',
+            'email'=>'luis@gmail.com',
+            'password'=>1255564
+        ]); */
+/*         updateOrInsert(
+            [
+                'email'=>'luis@gmail.com',
+            ],
+            [
+            'name'=>'Luís',
+            'email'=>'luis@gmail.com',
+            'password'=>1255564
+        ]) */
+        updateOrInsert(
+            [
+                'email'=>'liliana@gmail.com',
+            ],
+            [
+            'name'=>'Liliana',
+            'email'=>'liliana@gmail.com',
+            'password'=>1255154
+        ]);
+    }
+
+
+
 }

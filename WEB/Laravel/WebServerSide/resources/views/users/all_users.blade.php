@@ -80,10 +80,17 @@
         </thead>
         <tbody>
             @foreach ($allUsers  as $user)
-                <tr class="table-info">
+                {{-- <tr class="table-info">
                     <th scope="row" class="table-secondary">{{$user['id']}}</th>
                     <td>{{$user['name']}}</td>
                     <td>{{$user['phone']}}</td>
+                </tr> --}}
+                <tr class="table-info">
+                    <th scope="row" class="table-secondary">{{$user->id}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td><a href="{{route('user.view',$user->id)}}" class="btn btn-info">Ver</a></td>
+                    <td><a href="{{route('users.delete',$user->id)}}" class="btn btn-danger">Apagar</a></td>
                 </tr>
             @endforeach
         </tbody>
