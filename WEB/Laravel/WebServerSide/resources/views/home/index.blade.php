@@ -19,6 +19,12 @@
         <a href="{{route('users')}}">
             <li>Users</li>
         </a>
+        <a href="{{route('users.view')}}">
+            <li>User</li>
+        </a>
+        <a href="{{route('tasks')}}">
+            <li>Tasks</li>
+        </a>
     </ul>
 
     <hr>
