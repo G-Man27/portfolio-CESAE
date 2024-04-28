@@ -5,8 +5,8 @@ import Enums.HeroisPermitidos;
 import java.util.ArrayList;
 
 public class Arma extends ItemHeroi {
-    private int ataque;
-    private int ataqueEspecial;
+    protected int ataque;
+    protected int ataqueEspecial;
 
     public Arma(String nome, int preco, ArrayList<HeroisPermitidos> heroisPermitidos, int ataque, int ataqueEspecial) {
         super(nome, preco, heroisPermitidos);

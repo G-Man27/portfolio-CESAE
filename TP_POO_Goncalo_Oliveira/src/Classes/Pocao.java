@@ -5,8 +5,8 @@ import Enums.HeroisPermitidos;
 import java.util.ArrayList;
 
 public class Pocao extends Consumivel {
-    private int incrementoHp; //cura x Hp não ultrapassando maxHp
-    private int incrementoForca;
+    protected int incrementoHp; //cura x Hp não ultrapassando maxHp
+    protected int incrementoForca;
 
     public Pocao(String nome, int preco, ArrayList<HeroisPermitidos> heroisPermitidos, int incrementoHp, int incrementoForca) {
         super(nome, preco, heroisPermitidos);

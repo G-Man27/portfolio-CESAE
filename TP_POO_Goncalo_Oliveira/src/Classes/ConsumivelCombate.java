@@ -5,7 +5,7 @@ import Enums.HeroisPermitidos;
 import java.util.ArrayList;
 
 public class ConsumivelCombate extends Consumivel {
-    private int ataqueInstantaneo;
+    protected int ataqueInstantaneo;
 
     public ConsumivelCombate(String nome, int preco, ArrayList<HeroisPermitidos> heroisPermitidos, int ataqueInstantaneo) {
         super(nome, preco, heroisPermitidos);
@@ -17,6 +17,10 @@ public class ConsumivelCombate extends Consumivel {
         super(nome, preco);
         this.ataqueInstantaneo = ataqueInstantaneo;
         Vendedor.addItem(this);
+    }
+
+    public int getAtaqueInstantaneo() {
+        return this.ataqueInstantaneo;
     }
 
     @Override

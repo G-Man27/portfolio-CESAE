@@ -11,6 +11,11 @@ public abstract class Entidade {
         this.maxHp = maxHp;
         this.forca = forca;
     }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     public void mostrarDetalhes(){
         System.out.println("**********************************************************************");
         System.out.println("nome: " + nome);
@@ -18,5 +23,8 @@ public abstract class Entidade {
         System.out.println("hp: " + hp);
         System.out.println("forca: " + forca);
         System.out.print("**********************************************************************");
+    }
+    protected void Atacar(Entidade inimigo){
+        inimigo.hp-=this.forca;
     }
 }
