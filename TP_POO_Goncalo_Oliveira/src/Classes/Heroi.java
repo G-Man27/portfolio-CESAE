@@ -19,7 +19,9 @@ public abstract class Heroi extends Entidade {
         this.armaPrincipal = armaPrincipal;
     }
 
-
+    public void setOuro(int ouro) {
+        this.ouro = ouro;
+    }
 
     @Override
     public void mostrarDetalhes() {
@@ -209,6 +211,7 @@ public abstract class Heroi extends Entidade {
                 System.out.println("“Perdeu”");
                 resultado= false;
             }
+            inimigo.hp=inimigo.maxHp;
             System.out.println("****************************************************************************");
         }
         return resultado;
@@ -219,5 +222,25 @@ public abstract class Heroi extends Entidade {
         this.maxHp += 10;
         this.forca += 1;
         this.hp += 10;
+    }
+
+    public HeroisPermitidos getJob() {
+        return job;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public int getOuro() {
+        return ouro;
+    }
+
+    public Arma getArmaPrincipal() {
+        return armaPrincipal;
+    }
+
+    public ArrayList<Consumivel> getInventario() {
+        return inventario;
     }
 }

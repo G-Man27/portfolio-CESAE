@@ -1,8 +1,6 @@
-import Classes.Arma;
-import Classes.Cavaleiro;
-import Classes.Pocao;
-import Classes.Vendedor;
+import Classes.*;
 import Enums.HeroisPermitidos;
+import Enums.Sala;
 
 public class RPG {
     public static void main(String[] args) {
@@ -11,10 +9,17 @@ public class RPG {
         arma.addHeroi(HeroisPermitidos.CAVALEIRO);
         Cavaleiro cavaleiro=new Cavaleiro("cavaleiro",100,20,200,arma);
         Pocao pocao=new Pocao("vida",10,10,0);
+        pocao.addHeroi(HeroisPermitidos.CAVALEIRO);
         cavaleiro.addItem(pocao);
         cavaleiro.mostrarDetalhes();
         Vendedor.mostrarInventario();
         Vendedor.removeItem(pocao);
         Vendedor.mostrarInventario();
+        Vendedor.addItem(pocao);
+        Sala[] salas= Sala.values();
+        salas[1].name();
+        System.out.println(Sala.index.length);
+        Sala.index[3].entrar(cavaleiro);
+        cavaleiro.mostrarDetalhes();
     }
 }

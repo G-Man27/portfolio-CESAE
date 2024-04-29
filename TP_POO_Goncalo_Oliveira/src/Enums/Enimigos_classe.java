@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public enum Enimigos_classe {
     NORMAL(), MID_BOSS(), BOSS();
+    public static Enimigos_classe[] index=Enimigos_classe.values();
 
     public ArrayList<NPC> enimigos_lista=new ArrayList<NPC>();
 

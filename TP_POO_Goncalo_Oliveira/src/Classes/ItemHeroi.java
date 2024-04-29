@@ -42,4 +42,16 @@ public abstract class ItemHeroi {
         this.imprimirHeroisPermitidos();
         System.out.print("----------------------------------------------------------------------");
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getPreco() {
+        return preco;
+    }
+
+    public ArrayList<HeroisPermitidos> getHeroisPermitidos() {
+        return heroisPermitidos;
+    }
 }

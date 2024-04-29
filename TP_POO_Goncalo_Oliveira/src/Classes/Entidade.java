@@ -12,6 +12,22 @@ public abstract class Entidade {
         this.forca = forca;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
     public void setHp(int hp) {
         this.hp = hp;
     }
