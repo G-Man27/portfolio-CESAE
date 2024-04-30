@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GiftsController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TasksController;
 
@@ -28,3 +29,9 @@ Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
 
 Route::get('/tasks', [TasksController::class, 'allTasks'])->name('tasks');
+
+Route::get('/gifts', [GiftsController::class, 'allGifts'])->name('gifts');
+
+Route::get('/gifts/{id}', [GiftsController::class, 'viewGift'])->name('gift.view');
+
+Route::get('/delete_gift/{id}', [GiftsController::class, 'deleteGift'])->name('gift.delete');

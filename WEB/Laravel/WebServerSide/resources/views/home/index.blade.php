@@ -25,6 +25,9 @@
         <a href="{{route('tasks')}}">
             <li>Tasks</li>
         </a>
+        <a href="{{route('gifts')}}">
+            <li>Prendas</li>
+        </a>
     </ul>
 
     <hr>
