@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -111,6 +112,21 @@ class UserController extends Controller
         ]);
     }
 
+    public function createUser(Request $request){
+        $request->validate([
+            'name' => 'string|required|max:25',
+            'email' => 'email|required',
+            'password' => 'required|min:5',
+        ]);
+
+        User::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->back()->with('massage','User adicionado com sucesso');
+    }
 
 
 }

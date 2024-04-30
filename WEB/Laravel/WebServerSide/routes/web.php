@@ -26,9 +26,13 @@ Route::get('/user/user_id/{id}', [UserController::class, 'viewUser'])->name('use
 
 Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
 
+Route::post('/create-user', [UserController::class, 'createUser'])->name('users.create');
+
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
 
 Route::get('/tasks', [TasksController::class, 'allTasks'])->name('tasks');
+
+Route::post('/create-task', [TasksController::class, 'createTask'])->name('tasks.create');
 
 Route::get('/gifts', [GiftsController::class, 'allGifts'])->name('gifts');
 
