@@ -14,16 +14,14 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($gifts  as $gift)
-                    <tr class="table-info">
-                        <th scope="row" class="table-secondary">{{$gift->id}}</th>
-                        <td>{{$gift->name}}</td>
-                        <td>{{$gift->name_user}}</td>
-                        <td>{{$gift->valor_previsto}}</td>
-                        <td>{{$gift->valor_gasto}}</td>
-                        <td>{{$gift->descricao}}</td>
-                    </tr>
-                @endforeach
+                <tr class="table-info">
+                    <th scope="row" class="table-secondary">{{$gift->id}}</th>
+                    <td>{{$gift->name}}</td>
+                    <td>{{$gift->name_user}}</td>
+                    <td>{{$gift->valor_previsto}} €</td>
+                    <td>{{$gift->valor_gasto}} €</td>
+                    <td>{{$gift->descricao}}</td>
+                </tr>
             </tbody>
         </table>
     </div>

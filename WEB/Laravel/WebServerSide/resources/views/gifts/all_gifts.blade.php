@@ -25,7 +25,7 @@
                     <th scope="row" class="table-secondary">{{$gift->id}}</th>
                     <td>{{$gift->name}}</td>
                     <td>{{$gift->name_user}}</td>
-                    <td>{{$gift->valor_previsto}}</td>
+                    <td>{{$gift->valor_previsto}} €</td>
                     <td><a href="{{route('gift.view',$gift->id)}}" class="btn btn-info">Ver detalhes</a></td>
                     <td><a href="{{route('gift.delete',$gift->id)}}" class="btn btn-danger">Apagar</a></td>
                 </tr>

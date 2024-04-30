@@ -21,11 +21,11 @@ class GiftsController extends Controller
     }
 
     public function viewGift($id){
-        $gifts=Gift::leftjoin('users', 'gifts.user_id', '=','users.id' )
+        $gift=Gift::leftjoin('users', 'gifts.user_id', '=','users.id' )
         ->select('gifts.*', 'users.name as name_user')
         ->where('gifts.id',$id)
-        ->get();
-        return view('gifts.gift_view',compact('gifts'));
+        ->first();
+        return view('gifts.gift_view',compact('gift'));
     }
 
     public function deleteGift($id){
