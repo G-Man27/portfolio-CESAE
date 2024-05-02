@@ -1,21 +1,34 @@
 package Enums;
 
-import Classes.*;
+import Classes.Entidades.Heroi;
+import Classes.Entidades.NPC;
+import Classes.Entidades.Vendedor;
+import Classes.Items.Arma;
+import Classes.Items.ConsumivelCombate;
+import Classes.Items.ItemHeroi;
+import Classes.Items.Pocao;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public enum Sala {
-    ENCONTRO_BOSS,ENCONTRO_MID,ENCONTRO,TESOURO,ARMADILHA,TOTEM,LOJA;
+    ENCONTRO_BOSS,ENCONTRO_MID,ENCONTRO,ARMADILHA,TESOURO,TOTEM,LOJA;
 
     public static Sala[] index= Sala.values();
 
+    /**
+     * Metétodo para executar todas ações(acontecimentos) que acontecem quando o Heroi enta numa sala. Estes acontecimentos/ações variam dependendo do tipo de sala
+     * @param heroi Heroi
+     * @return True- Ganhou( Heroi vivo) | False- Perdeu( Heroi morto)
+     */
     public boolean entrar(Heroi heroi){
         Scanner input = new Scanner(System.in);
         boolean vivo = true;
         switch (this){
             case TESOURO :
+                System.out.println("Parece-lhe ver algo a brilhar no chão");
+                //criar um ArrayList com todos os items que podem ser usados pelo Heroi
                 ArrayList<ItemHeroi> loja= Vendedor.getLoja();
                 ArrayList<ItemHeroi> items=new ArrayList<>();            
                 for (ItemHeroi itemHeroi : loja) {
@@ -60,7 +73,7 @@ public enum Sala {
                         Vendedor.removeItem((ConsumivelCombate) item);
                     }
                 }else {
-                    System.out.println("O lugar está vazio!");
+                    System.out.println("Estava enganado, não encontrou nada!");
                 }
                 vivo=true;
                 break;

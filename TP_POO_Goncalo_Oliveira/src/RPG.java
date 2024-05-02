@@ -1,4 +1,10 @@
-import Classes.*;
+/*import Classes.Entidades.Cavaleiro;
+import Classes.Entidades.Heroi;
+import Classes.Entidades.NPC;
+import Classes.Entidades.Vendedor;
+import Classes.Items.Arma;
+import Classes.Items.Pocao;
+import Enums.Enimigos_classe;
 import Enums.HeroisPermitidos;
 import Enums.Sala;
 
@@ -21,5 +27,10 @@ public class RPG {
         System.out.println(Sala.index.length);
         Sala.index[3].entrar(cavaleiro);
         cavaleiro.mostrarDetalhes();
+
+        Heroi heroi=new Cavaleiro("ca",10,10,10,arma);
+        heroi.mostrarDetalhes();
+        NPC npc=new NPC("t",10,5,5, Enimigos_classe.NORMAL);
+        heroi.Combate(npc);
     }
-}
+}*/
