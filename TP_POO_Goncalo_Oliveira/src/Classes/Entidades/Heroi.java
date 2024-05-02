@@ -316,4 +316,5 @@ public abstract class Heroi extends Entidade {
     public ArrayList<Consumivel> getInventario() {
         return inventario;
     }
+
 }

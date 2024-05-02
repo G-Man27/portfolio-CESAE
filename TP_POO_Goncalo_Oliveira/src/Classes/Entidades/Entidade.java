@@ -60,6 +60,14 @@ public abstract class Entidade {
     }
 
     /**
+     * Método setter de Força da Entidade
+     * @return forca
+     */
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    /**
      * Imprime os Detelhes(caracteristicas) de uma Entidade
      */
     public void mostrarDetalhes(){

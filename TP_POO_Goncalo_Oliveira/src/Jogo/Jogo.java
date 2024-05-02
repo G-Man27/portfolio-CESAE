@@ -59,9 +59,18 @@ public class Jogo {
         nome = input.nextLine();
 
         switch (job) {
-            case CAVALEIRO -> heroi = new Cavaleiro(("Cavaleiro " + nome), hp, forca, ouro, inicial_cavaleiro);
-            case FEITICEIRO -> heroi = new Feiticeiro(("Feiticeiro " + nome), hp, forca, ouro, inicial_feiticeiro);
-            case ARQUEIRO -> heroi = new Arqueiro(("Arqueiro " + nome), hp, forca, ouro, inicial_arqueiro);
+            case CAVALEIRO -> {
+                nome="Cavaleiro " + nome;
+                heroi = new Cavaleiro(nome, hp, forca, ouro, inicial_cavaleiro);
+            }
+            case FEITICEIRO -> {
+                nome="Feiticeiro " + nome;
+                heroi = new Feiticeiro(nome, hp, forca, ouro, inicial_feiticeiro);
+            }
+            case ARQUEIRO -> {
+                nome="Arqueiro " + nome;
+                heroi = new Arqueiro(nome, hp, forca, ouro, inicial_arqueiro);
+            }
         }
 
         return heroi;
