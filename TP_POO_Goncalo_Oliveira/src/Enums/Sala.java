@@ -154,6 +154,8 @@ public enum Sala {
             case ARMADILHA:
                 int armadilha = new Random().ints(1, 1, 30).findAny().getAsInt();
                 heroi.setHp(heroi.getHp() - armadilha);
+                System.out.println("Sofre " + armadilha + " de danos.");
+                System.out.println(heroi.getNome() + " Hp: " + heroi.getHp());
                 break;
 
             case TOTEM:
@@ -189,7 +191,9 @@ public enum Sala {
                 } while (!sair);
                 break;
         }
-        heroi.usarPocao();
+        if(vivo){
+            heroi.usarPocao();
+        }
         return vivo;
     }
 }

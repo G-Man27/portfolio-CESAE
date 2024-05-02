@@ -336,8 +336,8 @@ public class Jogo {
                                         "2.\tDirigir-se à cabana");
                                 System.out.print("Escolha uma opção: ");
                                 switch (input.nextInt()) {
-                                    case 1 -> n_sala = 3;
-                                    case 2 -> n_sala = 10;
+                                    case 1 -> n_sala = 10;
+                                    case 2 -> n_sala = 3;
                                     default -> System.out.println("Opção inválida");
                                 }
                             } while (n_sala == 8);

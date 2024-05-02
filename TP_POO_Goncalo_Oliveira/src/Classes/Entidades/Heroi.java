@@ -113,11 +113,17 @@ public abstract class Heroi extends Entidade {
                         case 2 -> {break;}
                         default -> System.out.println("Opção inválida");
                     }
-                    this.hp=this.maxHp;
+                    if(usar){
+                        this.hp=this.maxHp;
+                        this.inventario.remove(pocao);
+                    }
+
                 }else {
+                    this.inventario.remove(pocao);
                     this.hp+= pocao.getIncrementoHp();
                 }
                 System.out.println("Hp: " + this.hp);
+                usar=false;
             }
         }while (usar);
     }
@@ -199,7 +205,7 @@ public abstract class Heroi extends Entidade {
                         inimigo.hp-=(this.forca+ this.armaPrincipal.getAtaqueEspecial());
                         especial_usado=true;
                         permitido=true;
-                        System.out.println(this.nome + " ataca " + inimigo.nome + " com o Especial de " + this.armaPrincipal + ", causando " + (this.forca+ this.armaPrincipal.getAtaqueEspecial()) + " pontos de dano");
+                        System.out.println(this.nome + " ataca " + inimigo.nome + " com o Especial de " + this.armaPrincipal.getNome() + ", causando " + (this.forca+ this.armaPrincipal.getAtaqueEspecial()) + " pontos de dano");
                         System.out.println(this.nome + " vida: " + this.hp + " | " + inimigo.nome + " vida: " + inimigo.hp);
                     }
                     break;
@@ -255,6 +261,7 @@ public abstract class Heroi extends Entidade {
                 System.out.println("“Parabéns " + this.job + " " + this.nome + ", ganhou um combate contra um " + inimigo.nome + ", e coletou do corpo do inimigo  " + inimigo.ouro + " de ouro.”");
                 this.subirNivel();
                 System.out.println("Subiu de nivel:\n-" + this.nome + ": Lv." + this.nivel);
+                this.mostrarDetalhes();
                 this.ouro+=inimigo.ouro;
                 resultado= true;
             } else {
