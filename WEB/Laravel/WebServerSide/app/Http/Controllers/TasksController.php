@@ -9,12 +9,19 @@ use Illuminate\Support\Facades\DB;
 
 class TasksController extends Controller
 {
-    public function allTasks() {
-        $allTasks= $this->getTasks();
-        $users=User::get();
+    public function allTasks(?string $id = null) {
+        if($id==null){
+            $allTasks= $this->getTasks();
+            $users=User::get();
+        return view('tarefas',compact('allTasks','users','id'/* ,'users' */));
+        }else{
+            $allTasks=$this->getTasks()->where('id',$id);
+            $users=User::get();
+        return view('tarefas',compact('allTasks','users','id'/* ,'users' */));
+        }
+
         //dd($allTasks);
         //$users=DB::table('users')->where('id','=','tasks.user_id')->get();
-        return view('tarefas',compact('allTasks','users'/* ,'users' */));
     }
 
     public function getTasks() {
@@ -26,18 +33,41 @@ class TasksController extends Controller
 
     public function createTask(Request $request){
         //dd($request->all());
-        $request->validate([
-            'name' => 'string|required',
-            'description' => 'max:100',
-            'user_id' => 'required',
-        ]);
+        if(isset($request->id)){
+            $request->validate([
+                'name' => 'string|required',
+                'description' => 'max:100',
+                //'user_id' => 'required',
+            ]);
 
-        Task::insert([
-            'name' => $request->name,
-            'description' => $request->description,
-            'user_id' => $request->user_id,
-        ]);
+            Task::where('id',$request->id)
+            ->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'user_id' => $request->user_id,
+            ]);
 
-        return redirect()->back()->with('massage','Tarefa adicionada com sucesso');
+            $message='Tarefa alterada com sucesso';
+
+        }else {
+            $request->validate([
+                'name' => 'string|required',
+                'description' => 'max:100',
+                'user_id' => 'required',
+            ]);
+
+
+            Task::insert([
+                'name' => $request->name,
+                'description' => $request->description,
+                'user_id' => $request->user_id,
+            ]);
+
+            $message='Tarefa adicionada com sucesso';
+        }
+
+
+        return redirect('/tasks')->with('message', $message, 'id', null);
     }
+
 }

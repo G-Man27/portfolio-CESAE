@@ -15,6 +15,24 @@ class UserController extends Controller
         $allUsers= $this->getUsers();
         // $allUsersInfo= $this->getUsersInfo();
 
+        /*//sem ternário
+        $search=null;
+        if (request()->query('search')) {
+            $search=request()->query('search');
+        }else{
+            $search=null;
+        } */
+
+        //com ternário
+        $search=request()->query('search')?request()->query('search'):null;
+
+        if ($search) {
+            $allUsers=User::where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $allUsers=User::get();
+        }
+
+
     return view('users.all_users',compact('allUsers'/*,'allUsersInfo'*/,));
     }
 
@@ -23,14 +41,16 @@ class UserController extends Controller
             $users=null;
             return view('users.user_view',compact('users'));
         }else{
-            $users=User::where('name','like',$name)->get();
-            return view('users.user_view',compact('users'));
+            $users=User::where('name','like',"%{$name}%")->get();
+            $use=null;
+            return view('users.user_view',compact('users','use'));
         }
     }
 
     public function viewUser($id){
         $users=User::where('id',$id)->get();
-        return view('users.user_view',compact('users'));
+        $use=true;
+        return view('users.user_view',compact('users','use'));
     }
 
     public function deleteUser($id){
@@ -113,17 +133,34 @@ class UserController extends Controller
     }
 
     public function createUser(Request $request){
-        $request->validate([
-            'name' => 'string|required|max:25',
-            'email' => 'email|required',
-            'password' => 'required|min:5',
-        ]);
+        if(isset($request->id)){
+            $request->validate([
+                'name' => 'string|required|max:25',
+                'address' => 'string|min:4',
+                'zip_code' => 'regex:/[0-9]{4}-[0-9]{3}/',
+            ]);
 
-        User::insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            User::where('id',$request->id)
+            ->update([
+                'name' => $request->name,
+                'address' => $request->address,
+                'zip_code' => $request->zip_code,
+            ]);
+
+        }else{
+            $request->validate([
+                'name' => 'string|required|max:25',
+                'email' => 'email|required',
+                'password' => 'required|min:5',
+            ]);
+
+            User::insert([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'created_at'=>new \DateTime(),
+            ]);
+        }
 
         return redirect()->back()->with('massage','User adicionado com sucesso');
     }

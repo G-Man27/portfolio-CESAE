@@ -30,7 +30,7 @@ Route::post('/create-user', [UserController::class, 'createUser'])->name('users.
 
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
 
-Route::get('/tasks', [TasksController::class, 'allTasks'])->name('tasks');
+Route::get('/tasks/{id?}', [TasksController::class, 'allTasks'])->name('tasks');
 
 Route::post('/create-task', [TasksController::class, 'createTask'])->name('tasks.create');
 
