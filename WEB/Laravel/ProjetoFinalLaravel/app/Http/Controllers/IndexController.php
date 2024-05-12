@@ -11,7 +11,16 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //
+        return view('home.index');
+
+    }
+
+    public function fallback(){
+        return view('errors.fallback');
+    }
+    
+    public function redirect() {
+        return redirect('/home');
     }
 
     /**
