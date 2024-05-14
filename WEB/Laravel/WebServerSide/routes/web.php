@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GiftsController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', [IndexController::class,'redirect']);
 
@@ -22,13 +23,15 @@ Route::get('/users', [UserController::class, 'allUsers'])->name('users');
 
 Route::get('/user/{name?}', [UserController::class, 'viewUser_name'])->name('users.view');
 
-Route::get('/user/user_id/{id}', [UserController::class, 'viewUser'])->name('user.view');
+Route::get('/user/user_id/{id}', [UserController::class, 'viewUser'])->name('user.view')->middleware('auth');
 
 Route::get('/add_user', [UserController::class, 'addUser'])->name('users.add');
 
 Route::post('/create-user', [UserController::class, 'createUser'])->name('users.create');
 
 Route::get('/delete_user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
+
+Route::get('/dashboard',[DashboardController::class,'home'])->name('dashboard.home')->middleware('auth');
 
 Route::get('/tasks/{id?}', [TasksController::class, 'allTasks'])->name('tasks');
 

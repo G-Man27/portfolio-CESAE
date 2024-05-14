@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -106,7 +107,7 @@ class UserController extends Controller
     }*/
 
     public function addUser() {
-        User::
+/*         /*User::
         /* insert([
             'name'=>'Luís',
             'email'=>'luis@gmail.com',
@@ -120,7 +121,7 @@ class UserController extends Controller
             'name'=>'Luís',
             'email'=>'luis@gmail.com',
             'password'=>1255564
-        ]) */
+        ]) /*
         updateOrInsert(
             [
                 'email'=>'liliana@gmail.com',
@@ -129,22 +130,33 @@ class UserController extends Controller
             'name'=>'Liliana',
             'email'=>'liliana@gmail.com',
             'password'=>1255154
-        ]);
+        ]); */
+
+        return view('users.create_user');
     }
 
     public function createUser(Request $request){
+        $photo=null;
         if(isset($request->id)){
             $request->validate([
                 'name' => 'string|required|max:25',
                 'address' => 'string|min:4',
                 'zip_code' => 'regex:/[0-9]{4}-[0-9]{3}/',
+                'photo' => 'image'
             ]);
+
+
+
+            if($request->hasFile('photo')){
+                $photo=Storage::putFile('uploadedImages', $request->photo);
+            }
 
             User::where('id',$request->id)
             ->update([
                 'name' => $request->name,
                 'address' => $request->address,
                 'zip_code' => $request->zip_code,
+                'photo'=> $photo
             ]);
 
         }else{
@@ -152,6 +164,7 @@ class UserController extends Controller
                 'name' => 'string|required|max:25',
                 'email' => 'email|required',
                 'password' => 'required|min:5',
+                'photo' => 'image'
             ]);
 
             User::insert([
@@ -159,6 +172,7 @@ class UserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'created_at'=>new \DateTime(),
+                'photo'=> $photo
             ]);
         }
 

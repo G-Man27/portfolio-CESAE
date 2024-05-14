@@ -1,6 +1,8 @@
 @extends('layouts.fe')
 
 @section('content')
+    <h1>Login:</h1>
+    <hr>
     <form method="POST" action="{{route('login')}}">
         @csrf
         <div class="mb-3">
@@ -17,5 +19,6 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{route('password.request')}}">Esqueceu-se da password?</a>
     </form>
 @endsection

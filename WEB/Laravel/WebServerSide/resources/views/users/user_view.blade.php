@@ -9,12 +9,15 @@
                 <thead>
                 <tr class="table-dark">
                     <th scope="col" >#id</th>
+                    <th scope="col" >Foto</th>
                     <th scope="col">Nome</th>
                     <th scope="col">email</th>
+                    <th scope="col">User_Type</th>
                     <th scope="col">address</th>
                     <th scope="col">zip_code</th>
                     <th scope="col">email_verified_at</th>
                     <th scope="col">password</th>
+                    <th scope="col">Photo_path</th>
                     <th scope="col">remember_token</th>
                     <th scope="col">created_at</th>
                     <th scope="col">updated_at</th>
@@ -24,12 +27,20 @@
                     @foreach ($users  as $user)
                         <tr class="table-info">
                             <th scope="row" class="table-secondary">{{$user->id}}</th>
+                            <td>
+                                <img width="150px" height="100px"
+                                 src="{{$user->photo ? asset('storage/'.$user->photo) :
+                                 asset('images/nophoto.jpg')}}"
+                                 alt="">
+                            </td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->user_type}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->zip_code}}</td>
                             <td>{{$user->email_verified_at}}</td>
                             <td>{{$user->password}}</td>
+                            <td>{{$user->photo}}</td>
                             <td>{{$user->remember_token}}</td>
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at}}</td>
@@ -40,7 +51,7 @@
         </div>
         @if ($use!=null)
             <div>
-                <form method="POST" action="{{route('users.create')}}">
+                <form method="POST" action="{{route('users.create')}}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{$user->id}}">
                     <div class="mb-3">
@@ -58,6 +69,14 @@
                     @error('email')
                         <small style="color: red">Insira um email válido</small>
                     @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">Photo</label>
+                        <input name="photo" accept="image/*" type="file" class="form-control" id="photo">
+                        @error('photo')
+                            photo
+                        @enderror
                     </div>
 
                     <div class="mb-3">
