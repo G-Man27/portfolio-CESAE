@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('songs', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('band_id');
-            $table->foreign('band_id')->references('id')->on('bands');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('user_type')->after('email')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('songs');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('user_type');
+        });
     }
 };

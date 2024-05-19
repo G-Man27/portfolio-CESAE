@@ -1,0 +1,125 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Album;
+use App\Models\AlbumSong;
+use App\Models\Band;
+use App\Models\Song;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class BandController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        
+        $search=request()->query('search')?request()->query('search'):null;
+
+        if ($search) {
+            $allBands=Band::where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $allBands=Band::get();
+        }
+
+
+    return view('home.index',compact('allBands'));
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(Request $request)
+    {
+        $image_path=null;
+        if(isset($request->id)){
+            $request->validate([
+                'name' => 'string|required',
+                'image_path' => 'image'
+            ]);
+
+
+
+            if($request->hasFile('image_path')){
+                $image_path=Storage::putFile('uploadedImages', $request->image_path);
+            }
+
+            Band::where('id',$request->id)
+            ->update([
+                'name' => $request->name,
+                'image_path'=> $image_path
+            ]);
+
+            $message='Banda alterada com sucesso';
+
+        }else{
+            $request->validate([
+                'name' => 'string|required',
+                'image_path' => 'image'
+            ]);
+
+            Band::insert([
+                'name' => $request->name,
+                'image_path'=> $image_path
+            ]);
+
+            $message='Banda adicionada com sucesso';
+        }
+
+        return redirect()->back()->with('message');
+    }
+    
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Band $band)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Band $band)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Band $band)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Band $band)
+    {
+        //
+    }
+
+    public function deleteBand($id){
+        Song::where('band_id',$id)->delete();
+        AlbumSong::where('band_id',$id)->delete();
+        Album::where('band_id',$id)->delete();
+        Band::where('id',$id)->delete();
+        return redirect()->back();
+    }
+}
