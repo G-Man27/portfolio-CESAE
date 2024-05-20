@@ -23,12 +23,6 @@
                     @foreach ($users  as $user)
                         <tr class="table-info">
                             <th scope="row" class="table-secondary">{{$user->id}}</th>
-                            <td>
-                                <img width="150px" height="100px"
-                                 src="{{$user->photo ? asset('storage/'.$user->photo) :
-                                 asset('images/nophoto.jpg')}}"
-                                 alt="">
-                            </td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->user_type}}</td>
@@ -63,6 +57,15 @@
                         <small style="color: red">Insira um email válido</small>
                     @enderror
                     </div>
+                    @if (Auth::user()->user_type == \App\Models\User::TYPE_ADMIN)
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">User Type</label>
+                            <input name="user_type" value="{{$user->email}}" type="number" class="form-control" id="" aria-describedby="">
+                            @error('user_type')
+                                <small style="color: red">Insira um type válido</small>
+                            @enderror
+                        </div>
+                    @endif
                     <button type="submit" class="btn btn-primary">Guardar Alterações</button>
                 </form>
             </div>

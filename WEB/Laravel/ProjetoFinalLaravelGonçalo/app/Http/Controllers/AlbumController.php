@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Band;
 use App\Models\Album;
 use App\Models\AlbumSong;
 use Illuminate\Http\Request;
@@ -22,8 +23,10 @@ class AlbumController extends Controller
             $albums=Album::get();
         }
 
+        $id='Todos os Álbuns';
 
-    return view('home.index',compact('albums'));
+
+    return view('albums',compact('albums','id'));
     }
 
     public function viewAlbums($id){
@@ -88,9 +91,21 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Album $album)
+    public function show($id)
     {
-        //
+        $search=request()->query('search')?request()->query('search'):null;
+        $albums=Album::where('band_id',$id);
+
+        if ($search) {
+            $albums->where('name', 'LIKE', "%{$search}%")->get();
+        } else {
+            $albums->get();
+        }
+
+        $id=Band::where('id',$id)->First();
+
+
+    return view('albums',compact('albums','id'));
     }
 
     /**
@@ -98,7 +113,14 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        $id=null;
+        return view('album_view',compact('album','id'));
+    }
+
+    public function new($id)
+    {
+        $album=null;
+        return view('album_view',compact('album','id'));
     }
 
     /**
@@ -114,6 +136,7 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->delete();
+        return redirect()->back()->with('message','Banda apagada com sucesso');
     }
 }

@@ -4,10 +4,11 @@
     <div>
         <form method="POST" action="{{route('albums.create')}}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$albums->id}}">
+            <input type="hidden" name="id" value="{{$album->id}}">
+            <input type="hidden" name="band_id" value="{{$album->band_id}}{{$id}}">
             <div class="mb-3">
                 <label for="exampleInputName" class="form-label">Nome</label>
-                <input name="name" value="{{$albums->name}}" type="text" class="form-control" id="exampleInputName">
+                <input name="name" value="{{$album->name}}" type="text" class="form-control" id="exampleInputName">
                 @error('name')
                     <small style="color: red">Insira um nome</small>
                 @enderror
@@ -20,7 +21,14 @@
                     photo
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Alterações</button>
+            <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Nome</label>
+                <input name="release_date" value="{{$album->release_date}}" type="date" class="form-control" id="exampleInputName">
+                @error('release_date')
+                    <small style="color: red">Insira uma data válida</small>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
 @endsection

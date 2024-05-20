@@ -17,7 +17,7 @@ class BandController extends Controller
      */
     public function index()
     {
-        
+
         $search=request()->query('search')?request()->query('search'):null;
 
         if ($search) {
@@ -25,6 +25,11 @@ class BandController extends Controller
         } else {
             $allBands=Band::get();
         }
+
+        foreach($allBands as $bands){
+            $bands->album_count=Album::where('band_id','=',$bands->id)->count();
+        }
+
 
 
     return view('home.index',compact('allBands'));
@@ -71,16 +76,17 @@ class BandController extends Controller
             $message='Banda adicionada com sucesso';
         }
 
-        return redirect()->back()->with('message');
+        return redirect('/home')->with('message');
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $band=null;
+        return view('band_view',compact('band'));
     }
 
     /**
@@ -96,7 +102,7 @@ class BandController extends Controller
      */
     public function edit(Band $band)
     {
-        //
+        return view('band_view',compact('band'));
     }
 
     /**
@@ -112,7 +118,8 @@ class BandController extends Controller
      */
     public function destroy(Band $band)
     {
-        //
+        $band->delete();
+        return redirect('/home')->with('message','Banda apagada com sucesso');
     }
 
     public function deleteBand($id){

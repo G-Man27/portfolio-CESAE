@@ -1,14 +1,22 @@
 @extends('layouts.fe')
 
 @section('title')
-    <title>Home</title>
+    <title>Álbuns</title>
 @endsection
 
 @section('content')
 @if (session('message'))
         <div class="alert alert-sucess">{{session('message')}}</div>
+        <hr>
     @endif
-    <hr>
+
+    <h1>
+        @if ($id=='Todos os Álbuns')
+            {{$id}}
+        @else
+            {{$id->name}}
+        @endif
+    </h1>
 
     <form action="" method="get">
         <input type="text" name="search" value="{{request()->query('search')}}">
@@ -37,8 +45,12 @@
                     </td>
                     <td>{{$album->name}}</td>
                     <td>{{$album->release_date}}</td>
-                    <td><a href="{{route('user.view',$user->id)}}" class="btn btn-info">Ver</a></td>
-                    <td><a href="{{route('users.delete',$user->id)}}" class="btn btn-danger">Apagar</a></td>
+                    @auth()
+                        <td><a href="{{route('album.view',$album)}}" class="btn btn-warning">Modificar</a></td>
+                        @if (Auth::user()->user_type == \App\Models\User::TYPE_ADMIN)
+                            <td><a href="{{route('album.delete',$album)}}" class="btn btn-danger">Apagar</a></td>
+                        @endif
+                    @endauth
                 </tr>
             @endforeach
         </tbody>

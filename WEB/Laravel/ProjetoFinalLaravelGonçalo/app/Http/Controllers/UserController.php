@@ -23,9 +23,19 @@ class UserController extends Controller
             $allUsers=User::get();
         }
 
+        return view('users.all_users',compact('allUsers'));
+    }
 
-    return view('users.all_users',compact('allUsers'));
 
+    public function viewUser($id){
+        $users=User::where('id',$id)->get();
+        $use=true;
+        return view('users.user_view',compact('users','use'));
+    }
+
+
+    public function addUser() {
+        return view('users.create_user');
     }
 
     /**
@@ -45,6 +55,7 @@ class UserController extends Controller
             User::where('id',$request->id)
             ->update([
                 'name' => $request->name,
+                'user_type'=>$request->user_type
             ]);
 
         }else{
