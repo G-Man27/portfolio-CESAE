@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id();            
+            $table->id();
             $table->string('name');
             $table->string('image_path')->nullable();
             $table->date('release_date')->nullable();
+            $table->text('songs')-nullable();
             $table->timestamps();
         });
 
         Schema::create('album_song', function (Blueprint $table) {
-            $table->id();   
+            $table->id();
             $table->unsignedBigInteger('album_id');
             $table->foreign('album_id')->references('id')->on('albums');
             $table->unsignedBigInteger('song_id');

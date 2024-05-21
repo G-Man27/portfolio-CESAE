@@ -41,7 +41,7 @@ class BandController extends Controller
      */
     public function create(Request $request)
     {
-        $image_path=null;
+        //$image_path=null;
         if(isset($request->id)){
             $request->validate([
                 'name' => 'string|required',
@@ -52,22 +52,32 @@ class BandController extends Controller
 
             if($request->hasFile('image_path')){
                 $image_path=Storage::putFile('uploadedImages', $request->image_path);
-            }
+
+                Band::where('id',$request->id)
+                ->update([
+                'name' => $request->name,
+                'image_path'=> $image_path
+                ]);
+            };
 
             Band::where('id',$request->id)
             ->update([
                 'name' => $request->name,
-                'image_path'=> $image_path
             ]);
 
             $message='Banda alterada com sucesso';
 
         }else{
+            //dd($request->image_path);
+            $image_path=null;
+
             $request->validate([
                 'name' => 'string|required',
                 'image_path' => 'image'
             ]);
-
+            if($request->image_path!=null){
+                $image_path=Storage::putFile('uploadedImages', $request->image_path);
+            }
             Band::insert([
                 'name' => $request->name,
                 'image_path'=> $image_path
@@ -118,6 +128,7 @@ class BandController extends Controller
      */
     public function destroy(Band $band)
     {
+        Album::where('band_id',$band->id)->delete();
         $band->delete();
         return redirect('/home')->with('message','Banda apagada com sucesso');
     }

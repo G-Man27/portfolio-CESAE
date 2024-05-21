@@ -1,6 +1,14 @@
 @extends('layouts.fe')
 
+@section('title')
+    <title>Login</title>
+@endsection
+
 @section('content')
+    @if (session('message'))
+        <div class="alert alert-success">{{session('message')}}</div>
+        <hr>
+    @endif
     <h1>Login:</h1>
     <hr>
     <form method="POST" action="{{route('login')}}">

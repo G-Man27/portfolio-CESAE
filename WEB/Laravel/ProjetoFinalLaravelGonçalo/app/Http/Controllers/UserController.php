@@ -70,10 +70,11 @@ class UserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'created_at'=>new \DateTime(),
+                'user_type'=>'2',
             ]);
         }
 
-        return redirect()->back()->with('message','User adicionado com sucesso');
+        return redirect('/login')->with('message','User adicionado com sucesso');
     }
 
     public function deleteUser($id){

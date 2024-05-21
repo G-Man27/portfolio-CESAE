@@ -1,5 +1,9 @@
 @extends('layouts.fe')
 
+@section('title')
+    <title>Reset Password</title>
+@endsection
+
 @section('content')
     <h1>Alteração de password:</h1>
     <hr>

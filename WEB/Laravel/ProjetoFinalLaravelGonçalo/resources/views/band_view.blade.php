@@ -1,5 +1,9 @@
 @extends('layouts.fe')
 
+@section('title')
+    <title>Band</title>
+@endsection
+
 @section('content')
 @if ($band==null)
     <div>
@@ -17,7 +21,7 @@
                 <label for="image_path" class="form-label">Imagem</label>
                 <input name="image_path" accept="image/*" type="file" class="form-control" id="image_path">
                 @error('image_path')
-                    Ficheiro Inválido
+                    <small style="color: red">Ficheiro Inválido</small>
                 @enderror
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>

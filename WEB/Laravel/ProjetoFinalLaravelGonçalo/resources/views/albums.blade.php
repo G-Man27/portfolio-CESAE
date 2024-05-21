@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-@if (session('message'))
-        <div class="alert alert-sucess">{{session('message')}}</div>
+    @if (session('message'))
+        <div class="alert alert-success">{{session('message')}}</div>
         <hr>
     @endif
 
@@ -24,31 +24,39 @@
     </form>
     <br>
 
-    <table class="table">
+    <table class="table table-responsive">
         <thead>
-          <tr class="table-dark">
+          <tr class="table-dark" style="text-align:center">
             <th scope="col" >#id</th>
             <th scope="col" >Imagem</th>
             <th scope="col">Nome</th>
             <th scope="col">Data de lançamento</th>
+            <th scope="col">Músicas</th>
+            @auth()
+                <th scope="col"></th>
+                @if (Auth::user()->user_type == \App\Models\User::TYPE_ADMIN)
+                    <th scope="col"></th>
+                @endif
+            @endauth
           </tr>
         </thead>
         <tbody>
             @foreach ($albums  as $album)
-                <tr class="table-info">
-                    <th scope="row" class="table-secondary">{{$album->id}}</th>
-                    <td>
-                        <img width="50px" height="50px"
+                <tr class="table-info" style="">
+                    <th style="vertical-align: middle; text-align:center" scope="row" class="table-secondary">{{$album->id}}</th>
+                    <td style="vertical-align: middle; text-align:center">
+                        <img class="img-fluid" style="max-height: 420px; object-fit: contain; "
                          src="{{$album->image_path ? asset('storage/'.$album->image_path) :
                          asset('img/noimage.jpg')}}"
                          alt="">
                     </td>
-                    <td>{{$album->name}}</td>
-                    <td>{{$album->release_date}}</td>
+                    <td style="vertical-align: middle; text-align:center">{{$album->name}}</td>
+                    <td style="vertical-align: middle; text-align:center">{{$album->release_date}}</td>
+                    <td style="vertical-align: middle; text-align:left"><pre>{{$album->songs}}</pre></td>
                     @auth()
-                        <td><a href="{{route('album.view',$album)}}" class="btn btn-warning">Modificar</a></td>
+                        <td style="vertical-align: middle; text-align:center; background-color:teal"><a href="{{route('album.view',$album)}}" class="btn btn-warning">Modificar</a></td>
                         @if (Auth::user()->user_type == \App\Models\User::TYPE_ADMIN)
-                            <td><a href="{{route('album.delete',$album)}}" class="btn btn-danger">Apagar</a></td>
+                            <td style="vertical-align: middle; text-align:center; background-color:teal"><a href="{{route('album.delete',$album)}}" class="btn btn-danger">Apagar</a></td>
                         @endif
                     @endauth
                 </tr>

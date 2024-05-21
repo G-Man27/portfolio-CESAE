@@ -42,42 +42,67 @@ class AlbumController extends Controller
      */
     public function create(Request $request)
     {
-        $image_path=null;
+        //dd($request);
+        //$image_path=null;
         if(isset($request->id)){
             $request->validate([
                 'name' => 'string|required',
-                'image_path' => 'image'
+                'image_path' => 'image',
+                'band_id' => 'required',
+                //'songs' => 'text',
+                //'release_date' => 'date'
             ]);
 
 
 
             if($request->hasFile('image_path')){
                 $image_path=Storage::putFile('uploadedImages', $request->image_path);
+
+                Album::where('id',$request->id)
+                ->update([
+                'name' => $request->name,
+                'image_path'=> $image_path,
+                'release_date'=>$request->release_date,
+                'songs'=>$request->songs
+                ]);
             }
 
             Album::where('id',$request->id)
             ->update([
                 'name' => $request->name,
-                'image_path'=> $image_path
+                'release_date'=>$request->release_date,
+                'songs'=>$request->songs
             ]);
 
             $message='Album alterado com sucesso';
 
         }else{
+            $image_path=null;
+
             $request->validate([
                 'name' => 'string|required',
-                'image_path' => 'image'
+                'image_path' => 'image',
+                'band_id' => 'required',
+                //'songs' => 'text',
+                //'release_date' => 'date'
             ]);
+
+            if($request->image_path!=null){
+                $image_path=Storage::putFile('uploadedImages', $request->image_path);
+            }
 
             Album::insert([
                 'name' => $request->name,
-                'image_path'=> $image_path
+                'image_path'=> $image_path,
+                'band_id'=> $request->band_id,
+                'release_date'=>$request->release_date,
+                'songs'=>$request->songs
             ]);
 
             $message='Album adicionado com sucesso';
         }
 
-        return redirect()->back()->with('message');
+        return redirect()->route('band.albums',[$request->band_id])->with('message');
     }
 
     /**
@@ -94,12 +119,13 @@ class AlbumController extends Controller
     public function show($id)
     {
         $search=request()->query('search')?request()->query('search'):null;
-        $albums=Album::where('band_id',$id);
+        $albums=Album::where('band_id',$id)->get();
+
 
         if ($search) {
-            $albums->where('name', 'LIKE', "%{$search}%")->get();
+            $albums=Album::where('band_id',$id)->where('name', 'LIKE', "%{$search}%")->get();
         } else {
-            $albums->get();
+            $albums=Album::where('band_id',$id)->get();
         }
 
         $id=Band::where('id',$id)->First();

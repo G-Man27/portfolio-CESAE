@@ -39,7 +39,7 @@ Route::get('/albums', [AlbumController::class,'index'])->name('albums.all');
 
 Route::get('/albums/{id}', [AlbumController::class, 'show'])->name('band.albums');
 
-Route::post('/new_album/{id}', [AlbumController::class, 'new'])->name('album.new')->middleware('auth');
+Route::get('/new_album/{id}', [AlbumController::class, 'new'])->name('album.new')->middleware('auth');
 
 Route::post('/create_album', [AlbumController::class, 'create'])->name('album.create')->middleware('auth');
 

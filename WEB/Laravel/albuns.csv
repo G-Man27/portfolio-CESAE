@@ -1,0 +1,10 @@
+id,name,image_path,release_date,band_id,songs,created_at,updated_at
+1,"Speak To Me",uploadedImages/Dvt7VBiog0D5LEocMDr5Lbo0AwdWKnQWHRxaYVd0.webp,2008-01-01,1,"01. Pistol Whip
+02. Living Musical
+03. The Pit
+04. Speak To Me
+05. Boots",NULL,"2024-05-21 14:22:28"
+2,"Imagine Dragons",uploadedImages/SSvwl7QuEABp2kwO3UeXy20w9CA4fveUWkRg6n1V.webp,2009-01-01,1,NULL,NULL,NULL
+3,"Hell and Silence",uploadedImages/lv8qlJz67AmyuTq1jSQHQ0pvZMYRfvK45o0o3ldM.webp,2010-01-01,1,NULL,NULL,NULL
+4,"Hear Me (EP)",uploadedImages/97WLXwe24hjUQANxpjPKz0mJfGZrJHQaK7uSHHHd.webp,2012-01-01,1,NULL,NULL,NULL
+5,78/82,uploadedImages/q3UvOzOsTuFlryPfiFitkDiaUCfzH3D7ydOIl2Pc.webp,1982-01-01,2,NULL,NULL,NULL
