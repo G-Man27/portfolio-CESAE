@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image_path" class="form-label">Photo</label>
+                    <label for="image_path" class="form-label">Imagem</label>
                     <input name="image_path" accept="image/*" type="file" class="form-control" id="image_path">
                     @error('image_path')
                         <small style="color: red">Ficheiro Inválido</small>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Songs</label>
-                    <input songs="songs" type="text" class="form-control" id="exampleInputName">
+                    <textarea name="songs"   class="form-control" id="exampleInputName" style="height:200px"></textarea>
                     @error('songs')
                         <small style="color: red">Insira um nome</small>
                     @enderror
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image_path" class="form-label">Photo</label>
+                    <label for="image_path" class="form-label">Imagem</label>
                     <input name="image_path"  accept="image/*" type="file" class="form-control" id="image_path">
                     @error('image_path')
                         <small style="color: red">Ficheiro Inválido</small>

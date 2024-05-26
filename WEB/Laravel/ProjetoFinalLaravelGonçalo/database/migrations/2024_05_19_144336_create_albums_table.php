@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('image_path')->nullable();
             $table->date('release_date')->nullable();
-            $table->text('songs')-nullable();
+            $table->text('songs')->nullable();
             $table->timestamps();
         });
 
