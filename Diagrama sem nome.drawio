@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2024-06-05T15:47:07.690Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="53gpC-KSTNa4kwDgIaSD" version="24.4.14" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-05T15:52:41.621Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="1ImN_dlvUBfwunXSkMaY" version="24.4.14" type="github">
   <diagram name="Página-1" id="oiv4fqXzuAdkLKFkZEvX">
     <mxGraphModel dx="979" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="2" value="Create Ticket" style="whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" parent="1" vertex="1">
-          <mxGeometry x="340" y="150" width="112" height="34" as="geometry" />
+          <mxGeometry x="300" y="150" width="112" height="34" as="geometry" />
         </mxCell>
         <mxCell id="3" value="View Ticket" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" parent="1" vertex="1">
           <mxGeometry x="300" y="415" width="115" height="34" as="geometry" />
@@ -13,10 +13,10 @@
         <mxCell id="lus-Y2SSgN3wEX3sVmJ6-9" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="50" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-9" target="2">
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-9" target="2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-11" target="2">
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-11" target="2">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="130" y="250" />
@@ -24,8 +24,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-11" target="lus-Y2SSgN3wEX3sVmJ6-18">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-11" target="lus-Y2SSgN3wEX3sVmJ6-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="280" />
+              <mxPoint x="50" y="797" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="lus-Y2SSgN3wEX3sVmJ6-11" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
           <mxGeometry x="60" y="220" width="30" height="60" as="geometry" />
@@ -72,7 +77,7 @@
         <mxCell id="lus-Y2SSgN3wEX3sVmJ6-31" value="&amp;nbsp;Delete Ticket" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
           <mxGeometry x="504" y="475" width="115" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-33" value="view user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-33" value="View user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
           <mxGeometry x="504" y="540" width="115" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lus-Y2SSgN3wEX3sVmJ6-43" value="View workstation" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
@@ -198,7 +203,7 @@
             <mxPoint x="191" y="185" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-92" value="create user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-92" value="Create user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
           <mxGeometry x="504" y="590" width="115" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lus-Y2SSgN3wEX3sVmJ6-93" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" target="lus-Y2SSgN3wEX3sVmJ6-94" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-18">
@@ -207,8 +212,26 @@
             <mxPoint x="201" y="195" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-94" value="delete user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-94" value="Delete user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
           <mxGeometry x="504" y="641" width="115" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-96" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-33" target="lus-Y2SSgN3wEX3sVmJ6-97">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="149.92000000000002" y="768" as="sourcePoint" />
+            <mxPoint x="680" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-97" value="Edit user" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="540" width="115" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-101" value="Change password" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;shape=ellipse;perimeter=ellipsePerimeter;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="660" width="115" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="lus-Y2SSgN3wEX3sVmJ6-102" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lus-Y2SSgN3wEX3sVmJ6-97" target="lus-Y2SSgN3wEX3sVmJ6-101">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="700" y="606.66" as="sourcePoint" />
+            <mxPoint x="771" y="606.66" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
