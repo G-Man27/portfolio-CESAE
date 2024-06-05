@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2024-06-05T14:44:55.314Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" version="24.4.13" etag="mkJpyl-pLZFrzYQ1mJcI" type="github">
+  <diagram name="Página-1" id="oiv4fqXzuAdkLKFkZEvX">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Create Ticket" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="29" width="112" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Review Ticket" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="28" y="103" width="115" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Resolve Ticket" style="rhombus;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="9" y="206" width="152" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Close Ticket" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="34" y="427" width="103" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Submit Ticket" style="curved=1;startArrow=none;endArrow=block;exitX=0.5038016183035714;exitY=1;entryX=0.4993546195652174;entryY=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="Assign Ticket" style="curved=1;startArrow=none;endArrow=block;exitX=0.38929235700717596;exitY=1;entryX=0.3292388556878498;entryY=0;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="47" y="172" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=0.5028011924342105;exitY=1.0011307565789473;entryX=0.4992794296116505;entryY=0.00505514705882353;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=0.6763635291805713;exitY=0;entryX=0.6094168821232588;entryY=1;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="124" y="172" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
