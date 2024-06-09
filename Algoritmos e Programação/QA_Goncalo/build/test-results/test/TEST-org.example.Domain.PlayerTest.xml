@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.Domain.PlayerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-06-09T18:06:39" hostname="CASA" time="0.011">
+  <properties/>
+  <testcase name="getPlayerNationality()" classname="org.example.Domain.PlayerTest" time="0.001"/>
+  <testcase name="getPlayerAge()" classname="org.example.Domain.PlayerTest" time="0.001"/>
+  <testcase name="getPlayerDefense()" classname="org.example.Domain.PlayerTest" time="0.0"/>
+  <testcase name="getPlayerValue()" classname="org.example.Domain.PlayerTest" time="0.0"/>
+  <testcase name="getPlayerAttack()" classname="org.example.Domain.PlayerTest" time="0.002"/>
+  <testcase name="getPlayerNumber()" classname="org.example.Domain.PlayerTest" time="0.001"/>
+  <testcase name="getPlayerName()" classname="org.example.Domain.PlayerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -22,17 +22,19 @@ class LoginControllerTest {
 
     @Test
     void authorizeLoginTest() {
-        assertEquals(admin,lc.authorizeLogin("mourinho","specialone"));
-        assertEquals(admin,lc.authorizeLogin("pintocosta","offshore"));
+        assertEquals(trainer.getUsername(),lc.authorizeLogin("mourinho","specialone").getUsername());
+        assertEquals(trainer.getType(),lc.authorizeLogin("mourinho","specialone").getType());
+        assertEquals(admin.getUsername(),lc.authorizeLogin("pintocosta","offshore").getUsername());
+        assertEquals(admin.getType(),lc.authorizeLogin("pintocosta","offshore").getType());
     }
     @Test
     void authorizeLoginTestPassErrada() {
-        assertEquals(admin,lc.authorizeLogin("mourinho","offshore"));
-        assertEquals(admin,lc.authorizeLogin("pintocosta","sffs"));
+        assertNull(lc.authorizeLogin("mourinho","offshore"));
+        assertNull(lc.authorizeLogin("pintocosta","sffs"));
     }
     @Test
     void authorizeLoginTestUserErrado() {
-        assertEquals(admin,lc.authorizeLogin("mouri","specialone"));
-        assertEquals(admin,lc.authorizeLogin("pintacosta","offshore"));
+        assertNull(lc.authorizeLogin("mouri","specialone"));
+        assertNull(lc.authorizeLogin("pintacosta","offshore"));
     }
 }

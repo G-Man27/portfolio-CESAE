@@ -11,7 +11,7 @@ public class CompetitionsReader {
     public static ArrayList<Competition> fileReader () {
         ArrayList<Competition> competitionArray = new ArrayList<>();
         try {
-            Scanner sc = new Scanner(new File("resources/Files/competicoes.csv"));
+            Scanner sc = new Scanner(new File("src/main/resources/Files/competicoes.csv"));
 
             sc.nextLine();
 

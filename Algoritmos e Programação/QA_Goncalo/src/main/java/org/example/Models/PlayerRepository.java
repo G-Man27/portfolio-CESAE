@@ -12,7 +12,7 @@ public class PlayerRepository {
     private ArrayList<Player> playersArray;
 
     private PlayerRepository() throws FileNotFoundException {
-        this.playersArray = PlayersReader.readPlayersFile("resources/Files/jogadores.csv");
+        this.playersArray = PlayersReader.readPlayersFile("src/main/resources/Files/jogadores.csv");
     }
 
     public static PlayerRepository getInstance() throws FileNotFoundException {

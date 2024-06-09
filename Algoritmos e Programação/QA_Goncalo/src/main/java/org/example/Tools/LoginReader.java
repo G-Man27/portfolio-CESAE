@@ -13,7 +13,7 @@ public class LoginReader {
     public static ArrayList<User> readLoginFile () {
         ArrayList<User> userArray = new ArrayList<>();
         try {
-            Scanner sc = new Scanner(new File("resources/Files/login_alverca.csv"));
+            Scanner sc = new Scanner(new File("src/main/resources/Files/login_alverca.csv"));
 
             sc.nextLine();
 

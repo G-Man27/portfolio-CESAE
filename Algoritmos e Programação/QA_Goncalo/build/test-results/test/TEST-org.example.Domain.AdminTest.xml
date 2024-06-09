@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.Domain.AdminTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-06-09T18:06:39" hostname="CASA" time="0.003">
+  <properties/>
+  <testcase name="getPassword()" classname="org.example.Domain.AdminTest" time="0.001"/>
+  <testcase name="getType()" classname="org.example.Domain.AdminTest" time="0.001"/>
+  <testcase name="getUsername()" classname="org.example.Domain.AdminTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

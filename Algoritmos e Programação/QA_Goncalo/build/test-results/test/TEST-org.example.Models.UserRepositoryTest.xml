@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.Models.UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-09T18:06:39" hostname="CASA" time="0.0">
+  <properties/>
+  <testcase name="getUserArray()" classname="org.example.Models.UserRepositoryTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

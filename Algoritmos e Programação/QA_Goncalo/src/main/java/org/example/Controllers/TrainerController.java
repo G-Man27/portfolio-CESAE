@@ -20,9 +20,9 @@ public class TrainerController {
         return competitionsInThatYear;
     }
 
-    public String attackDefenseRanking () {
+    public ArrayList<ArrayList<Player>>/*String*/ attackDefenseRanking () {
         System.out.println("Logic for attack - defense ranking");
-        return "";
+        return null;
     }
 
     public Player bestDefender () {
