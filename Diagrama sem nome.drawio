@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-05T15:52:41.621Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="1ImN_dlvUBfwunXSkMaY" version="24.4.14" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-11T12:03:12.657Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="zjFPF0MEdUxrixEz7J1i" version="24.5.2" type="github" pages="2">
   <diagram name="Página-1" id="oiv4fqXzuAdkLKFkZEvX">
     <mxGraphModel dx="979" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -231,6 +231,65 @@
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="700" y="606.66" as="sourcePoint" />
             <mxPoint x="771" y="606.66" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="CInG4jhDYnjrcz3YX2P4" name="Página-2">
+    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="384" y="20" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="2Q4Kwsm-WDu0uRSmciwR-1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="399" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-1" target="2Q4Kwsm-WDu0uRSmciwR-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="120" as="targetPoint" />
+            <mxPoint x="399" y="50" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-5" value="User with valid mail address creates a ticket" style="html=1;align=center;verticalAlign=middle;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-8" value="Valid mail and necessary filds filled" style="rhombus;whiteSpace=wrap;html=1;autosize=0;align=center;fontSize=12;horizontal=1;verticalAlign=middle;spacing=3;spacingBottom=11;" vertex="1" parent="1">
+          <mxGeometry x="565" y="240" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="399" y="120" as="targetPoint" />
+            <mxPoint x="399" y="50" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="399" y="85" />
+              <mxPoint x="399" y="85" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-5" target="2Q4Kwsm-WDu0uRSmciwR-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="250" as="targetPoint" />
+            <mxPoint x="220" y="290" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-15" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-8" target="2Q4Kwsm-WDu0uRSmciwR-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="586" y="575" as="targetPoint" />
+            <mxPoint x="370" y="490" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="770" y="305" />
+              <mxPoint x="770" y="155" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-16" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2Q4Kwsm-WDu0uRSmciwR-15">
+          <mxGeometry x="0.0169" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
