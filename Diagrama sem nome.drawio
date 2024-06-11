@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-11T12:03:12.657Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="zjFPF0MEdUxrixEz7J1i" version="24.5.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-06-11T13:49:03.241Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="ZRRwpIkPfKyeg4ALAdfT" version="24.5.2" type="github" pages="2">
   <diagram name="Página-1" id="oiv4fqXzuAdkLKFkZEvX">
     <mxGraphModel dx="979" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -261,14 +261,11 @@
         <mxCell id="2Q4Kwsm-WDu0uRSmciwR-8" value="Valid mail and necessary filds filled" style="rhombus;whiteSpace=wrap;html=1;autosize=0;align=center;fontSize=12;horizontal=1;verticalAlign=middle;spacing=3;spacingBottom=11;" vertex="1" parent="1">
           <mxGeometry x="565" y="240" width="130" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-1">
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-1" target="2Q4Kwsm-WDu0uRSmciwR-22">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="399" y="120" as="targetPoint" />
             <mxPoint x="399" y="50" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="399" y="85" />
-              <mxPoint x="399" y="85" />
-            </Array>
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="2Q4Kwsm-WDu0uRSmciwR-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-5" target="2Q4Kwsm-WDu0uRSmciwR-8">
@@ -291,6 +288,26 @@
           <mxGeometry x="0.0169" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-18" value="yes" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2Q4Kwsm-WDu0uRSmciwR-8" target="2Q4Kwsm-WDu0uRSmciwR-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="490" as="targetPoint" />
+            <mxPoint x="376" y="580" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="630" y="400" />
+              <mxPoint x="630" y="400" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-20" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="615" y="420" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-21" value="Administrator views ala tickets" style="html=1;align=center;verticalAlign=middle;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="344" y="400" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2Q4Kwsm-WDu0uRSmciwR-22" value="Administrator enters email and password" style="html=1;align=center;verticalAlign=middle;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="329" y="120" width="140" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
