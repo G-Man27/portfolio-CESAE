@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-12T11:24:04.051Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="Q9M-ci67LccHTx4GQW-P" version="24.5.3" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2024-06-12T11:33:50.145Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="d8is28_BKlKaKxP-it6u" version="24.5.3" type="github" pages="3">
   <diagram name="Página-1" id="oiv4fqXzuAdkLKFkZEvX">
     <mxGraphModel dx="979" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -727,7 +727,7 @@
         <mxCell id="pPFfG337Fm1HyWfIOevR-131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pPFfG337Fm1HyWfIOevR-98" target="pPFfG337Fm1HyWfIOevR-107">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pPFfG337Fm1HyWfIOevR-132" value="destroy user" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-131">
+        <mxCell id="pPFfG337Fm1HyWfIOevR-132" value="destroy user(admin)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-131">
           <mxGeometry x="-0.0365" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -966,7 +966,7 @@
         <mxCell id="pPFfG337Fm1HyWfIOevR-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" source="pPFfG337Fm1HyWfIOevR-196" target="pPFfG337Fm1HyWfIOevR-198" parent="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pPFfG337Fm1HyWfIOevR-187" value="create/edit ticket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-186">
+        <mxCell id="pPFfG337Fm1HyWfIOevR-187" value="edit ticket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-186">
           <mxGeometry x="-0.0696" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -1001,6 +1001,19 @@
         <mxCell id="pPFfG337Fm1HyWfIOevR-195" value="destroy ticket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-194">
           <mxGeometry x="-0.0365" relative="1" as="geometry">
             <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pPFfG337Fm1HyWfIOevR-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="pPFfG337Fm1HyWfIOevR-196" target="pPFfG337Fm1HyWfIOevR-198">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="975" />
+              <mxPoint x="350" y="953" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pPFfG337Fm1HyWfIOevR-204" value="assign ticket" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="pPFfG337Fm1HyWfIOevR-203">
+          <mxGeometry x="0.1133" relative="1" as="geometry">
+            <mxPoint x="-42" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="pPFfG337Fm1HyWfIOevR-196" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
