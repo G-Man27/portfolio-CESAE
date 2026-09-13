@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conversor de Moedas"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:background="@color/purple"
+        />
+
+    <EditText
+        android:id="@+id/editTextEuros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:hint="Valor em €"
+        android:inputType="text"
+        android:minHeight="48dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+            <Button
+                android:id="@+id/button_reais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reais"
+                android:textColor="@color/red"
+                android:gravity="center"
+                android:backgroundTint="@color/gold"
+                />
+            <Button
+                android:id="@+id/button_dollars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dólares"
+                android:gravity="center"
+                android:backgroundTint="@color/verde"
+                android:layout_margin="10dp"
+                />
+            <Button
+                android:id="@+id/button_pesos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pesos"
+                android:gravity="center"
+                android:backgroundTint="@color/gray"
+                />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Desenvolvido por:\n Gonçalo Oliveira"
+        android:gravity="center"
+        android:textSize="30sp"
+        />
+
+
+</LinearLayout>
